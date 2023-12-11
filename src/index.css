@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  background-image: url("");
+}
+
+.input {
+  width: 335px;
+  height: 35px;
+  padding: 10px;
+  border: none;
+  font-size: larger;
+}
+.field {
+  border-bottom: 2px solid rgba(192, 192, 192, 1);
+  outline: 0;
+}
+.password {
+  font-weight: 900;
+  font-size: xx-large;
+}
+.button {
+  width: 335px;
+  height: 45px;
+  background-color: rgba(192, 192, 192, 1);
+  border: none;
+  border-radius: 80px;
+  color: white;
+}

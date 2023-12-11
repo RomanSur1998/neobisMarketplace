@@ -1,0 +1,29 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-image: url("../../assets/pictures/shoping_bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: white;
+}
+
+.form {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30%;
+}
+.headers {
+  display: flex;
+  align-items: center;
+}
