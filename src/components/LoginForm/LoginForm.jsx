@@ -10,7 +10,9 @@ const LoginForm = () => {
       username: "",
       password: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      console.log(values, "values");
+    },
     validationSchema,
   });
 
@@ -18,20 +20,20 @@ const LoginForm = () => {
     <>
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <Field
-          classblock={""}
           type={"text"}
-          name={" username"}
+          name={"username"}
           formik={formik}
           placeholder={"Имя пользователя"}
         />
         <Field
-          classblock={""}
-          type={"text"}
-          name={" username"}
+          type={"password"}
+          name={"password"}
           formik={formik}
-          placeholder={"Почта"}
+          placeholder={"Пароль"}
         />
-        <button className="button">Далее</button>
+        <button className={formik.isValid ? "button purple" : "button"}>
+          Далее
+        </button>
       </form>
     </>
   );

@@ -21,9 +21,18 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 30%;
+  align-items: center;
+  justify-content: center;
+  gap: 20%;
 }
 .headers {
   display: flex;
   align-items: center;
+}
+.label {
+  width: 100%;
+  text-align: start;
+}
+.purpule {
+  color: rgba(84, 88, 234, 1);
 }

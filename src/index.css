@@ -1,25 +1,61 @@
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("./fonts/gothampro_black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("./fonts/gothampro_bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("./fonts/gothampro_light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("./fonts/gothampro_medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  background-image: url("");
+  font-family: "Gotham Pro";
 }
 
 .input {
+  font-family: "Gotham Pro Light", "Gotham Pro", sans-serif;
   width: 335px;
   height: 35px;
-  padding: 10px;
   border: none;
-  font-size: larger;
+  font-size: 16px;
+  font-weight: 500;
 }
+.input::placeholder {
+  color: rgba(192, 192, 192, 1);
+  font-weight: 300;
+}
+
 .field {
   border-bottom: 2px solid rgba(192, 192, 192, 1);
   outline: 0;
 }
+
 .password {
   font-weight: 900;
   font-size: xx-large;
 }
+
 .button {
   width: 335px;
   height: 45px;
@@ -27,4 +63,9 @@
   border: none;
   border-radius: 80px;
   color: white;
+  margin-top: 40px;
+}
+
+.purple {
+  background-color: rgba(84, 88, 234, 1);
 }
