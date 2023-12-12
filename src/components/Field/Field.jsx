@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../Field/Field.module.css";
+import styles from "../Field/Field.module.scss";
 import close from "../../assets/icons/is-show-pass.svg";
 import open from "../../assets/icons/is-unshow-pass.svg";
 

@@ -1,0 +1,40 @@
+.container {
+  height: 100vh;
+  display: flex;
+}
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-image: url("../../assets/pictures/shoping_bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: white;
+}
+.reg {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+}
+.arrow {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}

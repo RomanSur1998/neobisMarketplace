@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../LoginPage/LoginPage.module.css";
+import styles from "../LoginPage/LoginPage.module.scss";
 import card from "../../assets/icons/shoping-card.svg";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { Link } from "react-router-dom";
@@ -26,7 +26,9 @@ const LoginPage = () => {
         </div>
         <div className={styles.form}>
           <LoginForm />
-          <h3 className={styles.purpule}>Зарегистрироваться</h3>
+          <Link to={"/registr"} className={styles.purpule}>
+            Зарегистрироваться
+          </Link>
         </div>
       </section>
       <ToastContainer />

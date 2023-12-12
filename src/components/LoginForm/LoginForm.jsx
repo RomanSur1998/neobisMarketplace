@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import React from "react";
-import styles from "../LoginForm/LoginForm.module.css";
+import styles from "../LoginForm/LoginForm.module.scss";
 import { validationSchema } from "../../helpers/loginShema";
 import Field from "../Field/Field";
 
