@@ -3,6 +3,7 @@ import React from "react";
 import styles from "../LoginForm/LoginForm.module.scss";
 import { validationSchema } from "../../helpers/loginShema";
 import Field from "../Field/Field";
+import FormButton from "../FormButton/FormButton";
 
 const LoginForm = () => {
   const formik = useFormik({
@@ -31,9 +32,8 @@ const LoginForm = () => {
           formik={formik}
           placeholder={"Пароль"}
         />
-        <button className={formik.isValid ? "button purple" : "button"}>
-          Далее
-        </button>
+
+        <FormButton formik={formik} text={"Войти"} />
       </form>
     </>
   );

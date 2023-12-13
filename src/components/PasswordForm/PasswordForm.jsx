@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../PasswordForm/PasswordForm.module.scss";
 import Field from "../Field/Field";
 import { useFormik } from "formik";
+import FormButton from "../FormButton/FormButton";
 
 const PasswordForm = () => {
   const formik = useFormik({
@@ -16,21 +17,24 @@ const PasswordForm = () => {
   });
   return (
     <>
-      <form>
+      <form className={styles.form}>
         <Field
           type={"password"}
           name={"password"}
           formik={formik}
-          placeholder={"Имя пользователя"}
+          placeholder={"Введите пароль"}
           isPass={true}
+          isPassword={true}
         />
         <Field
           type={"password"}
           name={"confirmPassword"}
           formik={formik}
-          placeholder={"Имя пользователя"}
+          placeholder={"Подтвердите пароль"}
           isPass={true}
+          isPassword={true}
         />
+        <FormButton formik={formik} text={"Далее"} />
       </form>
     </>
   );

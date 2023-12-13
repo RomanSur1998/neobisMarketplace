@@ -2,6 +2,7 @@ import React from "react";
 import card from "../../assets/icons/shoping-card.svg";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import arrow from "../../assets/icons/arrow.svg";
+import open from "../../assets/icons/is-show-pass.svg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import styles from "../RegistrPage/RegistrationPage.module.scss";
@@ -28,8 +29,9 @@ const RegistrationPage = () => {
               <span>Назад</span>
             </div>
             <span>Регистрация </span>
-            <div></div>
-            <div></div>
+            <div className={styles.open}>
+              <img src={open} alt="" />
+            </div>
           </div>
           <div className={styles.form}>
             <RegistrationForm />{" "}

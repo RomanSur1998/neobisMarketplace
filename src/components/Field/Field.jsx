@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import styles from "../Field/Field.module.scss";
 import close from "../../assets/icons/is-show-pass.svg";
 import open from "../../assets/icons/is-unshow-pass.svg";
+import { getLabel } from "../../helpers/fieldHelpers/getLabel";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowPass } from "../../redux/slices/UserSlice";
 
-const Field = ({ name, type, formik, placeholder }) => {
-  const [isShowPass, setIsShowPass] = useState(false);
+const Field = ({ name, type, formik, placeholder, isPassword }) => {
   const [isLabelShow, setIsLabelShow] = useState(false);
+  const { isShowPass } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   return (
     <>
       <div>
-        <div className={styles.labelContainer}>
-          {isLabelShow ? (
-            <label className={styles.label} htmlFor="name">
-              {placeholder}
-            </label>
-          ) : null}
-        </div>
+        {getLabel(placeholder, isLabelShow, isPassword)}
+        <div className={styles.labelContainer}></div>
         <div className={styles.showPass}>
           <input
-            className="input field"
+            className={!isPassword ? "input field" : "input password"}
             type={isShowPass ? "text" : type}
             id={name}
             name={name}
@@ -31,24 +30,20 @@ const Field = ({ name, type, formik, placeholder }) => {
               setIsLabelShow(true);
             }}
           />
-          {type === "password" ? (
+          {type === "password" && !isPassword ? (
             isShowPass ? (
               <img
                 src={open}
                 alt=""
                 className={styles.position}
-                onClick={() => {
-                  setIsShowPass(!isShowPass);
-                }}
+                onClick={() => dispatch(setShowPass(!isShowPass))}
               />
             ) : (
               <img
                 className={styles.position}
                 src={close}
                 alt=""
-                onClick={() => {
-                  setIsShowPass(!isShowPass);
-                }}
+                onClick={() => dispatch(setShowPass(!isShowPass))}
               />
             )
           ) : null}

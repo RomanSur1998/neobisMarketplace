@@ -5,6 +5,7 @@ import Field from "../Field/Field";
 import { validationSchema } from "../../helpers/registrShema";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/UserSlice";
+import FormButton from "../FormButton/FormButton";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -34,12 +35,8 @@ const RegistrationForm = () => {
           formik={formik}
           placeholder={"Почта"}
         />
-        <button
-          className={formik.isValid ? "button purple" : "button"}
-          type="submit"
-        >
-          Далее
-        </button>
+
+        <FormButton formik={formik} text={"Далее"} />
       </form>
     </>
   );

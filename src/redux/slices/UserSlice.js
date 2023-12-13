@@ -5,6 +5,7 @@ const initialState = {
   token: "",
   error: false,
   status: null,
+  isShowPass: false,
 };
 
 export const userSlice = createSlice({
@@ -17,7 +18,10 @@ export const userSlice = createSlice({
         username: action.payload.username,
       };
     },
+    setShowPass(state, action) {
+      state.isShowPass = action.payload;
+    },
   },
 });
-export const { setUser } = userSlice.actions;
+export const { setUser, setShowPass } = userSlice.actions;
 export default userSlice.reducer;

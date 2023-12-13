@@ -54,6 +54,12 @@
 .password {
   font-weight: 900;
   font-size: xx-large;
+  outline: none;
+  text-align: center;
+}
+.password::placeholder {
+  text-align: center;
+  font-size: large;
 }
 
 .button {
@@ -63,7 +69,7 @@
   border: none;
   border-radius: 80px;
   color: white;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .purple {
