@@ -31,6 +31,7 @@
   box-sizing: border-box;
   padding: 0;
   font-family: "Gotham Pro";
+  color: rgba(73, 73, 73, 1);
 }
 
 .input {
@@ -74,4 +75,8 @@
 
 .purple {
   background-color: rgba(84, 88, 234, 1);
+}
+
+.margin {
+  margin: 0;
 }
