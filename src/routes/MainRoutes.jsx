@@ -5,7 +5,7 @@ import PasswordPage from "../pages/PasswordPage/PasswordPage";
 import { Route, Routes } from "react-router";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import FavoritesPage from "../pages/FavoritesPage/FavoritesPage";
-import OwnProducts from "../pages/OwnProcducts/OwnProducts";
+import OwnProducts from "../pages/OwnProducts/OwnProducts";
 import MainPage from "../pages/MainPage/MainPage";
 
 const MainRoutes = () => {

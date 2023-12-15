@@ -13,7 +13,12 @@ const ProfileLayouts = ({ children }) => {
     <>
       <section className={styles.layoutContainer}>
         <div className={styles.sideBar}>
-          <div className={styles.headersTitile}>
+          <div
+            onClick={() => {
+              navigate("/profile");
+            }}
+            className={styles.headersTitile}
+          >
             <img src={profileIcon} alt="" />
             <div>
               <h3>Roman</h3>

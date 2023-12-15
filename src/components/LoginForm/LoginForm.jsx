@@ -33,7 +33,7 @@ const LoginForm = () => {
           placeholder={"Пароль"}
         />
 
-        <FormButton formik={formik} text={"Войти"} />
+        <FormButton formik={formik} text={"Войти"} type="submit" />
       </form>
     </>
   );

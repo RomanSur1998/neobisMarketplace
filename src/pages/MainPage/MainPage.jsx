@@ -4,9 +4,11 @@ import profileIcon from "../../assets/icons/profile-icon.svg";
 import styles from "../MainPage/MainPage.module.scss";
 import Card from "../../components/Card/Card";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 const MainPage = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <section>
@@ -14,7 +16,14 @@ const MainPage = () => {
           {" "}
           <img src={mainLogo} alt="" />
           <div className={styles.headersRight}>
-            <button className="button purple margin">Подать объявление</button>
+            <button
+              className="button purple margin"
+              onClick={() => {
+                setIsActive(!isActive);
+              }}
+            >
+              Подать объявление
+            </button>
             <div className={styles.headersRight}>
               <div className={styles.block}>
                 <h3>Roman</h3>

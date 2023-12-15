@@ -17,7 +17,7 @@ const PasswordForm = () => {
   });
   return (
     <>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
         <Field
           type={"password"}
           name={"password"}
@@ -34,7 +34,8 @@ const PasswordForm = () => {
           isPass={true}
           isPassword={true}
         />
-        <FormButton formik={formik} text={"Далее"} />
+
+        <FormButton formik={formik} text={"Далее"} type="submit" />
       </form>
     </>
   );

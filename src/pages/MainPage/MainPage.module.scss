@@ -15,6 +15,9 @@
   display: flex;
   flex-direction: column;
 }
+.headersRight img {
+  cursor: pointer;
+}
 .mainContent {
   margin: 40px auto;
   display: flex;
