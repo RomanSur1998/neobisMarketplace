@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import profileIcon from "../../assets/icons/profile-icon.svg";
 import arrowMini from "../../assets/icons/arrow_mini.svg";
+import confirmLogout from "../../assets/icons/confirm_logout.svg";
 import logout from "../../assets/icons/logout.svg";
 import favorites from "../../assets/icons/favorites.svg";
 import myProducts from "../../assets/icons/my_products.svg";
-import styles from "../ProfileLayout/ProfileLayouts.module.scss";
 import { useNavigate } from "react-router";
+import OutModal from "../../components/OutModal/OutModal";
+import styles from "../ProfileLayout/ProfileLayouts.module.scss";
 
 const ProfileLayouts = ({ children }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleActive = () => {
+    setIsActive(!isActive);
+  };
   const navigate = useNavigate();
   return (
     <>
@@ -52,7 +59,7 @@ const ProfileLayouts = ({ children }) => {
             </div>
           </div>
           <div className={styles.line}>
-            <div className={styles.iconRow}>
+            <div className={styles.iconRow} onClick={handleActive}>
               <img src={logout} alt="" />
               <span>Выйти</span>
             </div>
@@ -61,6 +68,14 @@ const ProfileLayouts = ({ children }) => {
         </div>
         <div className={styles.childrenContainer}>{children}</div>
       </section>
+      {isActive ? (
+        <OutModal isActive={isActive} handleActive={handleActive}>
+          <img src={confirmLogout} alt="" />
+          <h3>Вы действительно хотите выйти с приложения?</h3>
+          <button>Выйти</button>
+          <button onClick={handleActive}>Отмена</button>
+        </OutModal>
+      ) : null}
     </>
   );
 };

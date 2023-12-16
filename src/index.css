@@ -63,6 +63,13 @@
   font-size: large;
 }
 
+.red {
+  color: red;
+}
+
+.centre-text {
+  text-align: center;
+}
 .button {
   width: 335px;
   height: 45px;

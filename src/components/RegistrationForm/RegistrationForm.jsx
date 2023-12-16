@@ -3,20 +3,21 @@ import styles from "../RegistrationForm/RegistrationForm.module.scss";
 import { useFormik } from "formik";
 import Field from "../Field/Field";
 import { validationSchema } from "../../helpers/registrShema";
-import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/slices/UserSlice";
 import FormButton from "../FormButton/FormButton";
+import { useNavigate } from "react-router";
+import { setUsername } from "../../helpers/formatUsername/setUsername";
 
 const RegistrationForm = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       username: "",
       email: "",
     },
     onSubmit: (value) => {
-      console.log(value, "regist value");
-      dispatch(setUser(value));
+      setUsername(value);
+      navigate("/pass");
     },
     validationSchema,
   });

@@ -1,19 +1,24 @@
 import React from "react";
-import styles from "../PasswordForm/PasswordForm.module.scss";
 import Field from "../Field/Field";
 import { useFormik } from "formik";
 import FormButton from "../FormButton/FormButton";
+import { validationSchema } from "../../helpers/passShema";
+import styles from "../PasswordForm/PasswordForm.module.scss";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/slices/UserSlice";
+import { getUsername } from "../../helpers/formatUsername/getUsername";
 
 const PasswordForm = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       password: "",
       confirmPassword: "",
     },
     onSubmit: (values) => {
-      console.log(values, "passwords");
+      dispatch(setUser(getUsername(values)));
     },
-    // validationSchema,
+    validationSchema,
   });
   return (
     <>
@@ -23,17 +28,21 @@ const PasswordForm = () => {
           name={"password"}
           formik={formik}
           placeholder={"Введите пароль"}
-          isPass={true}
           isPassword={true}
         />
-        <Field
-          type={"password"}
-          name={"confirmPassword"}
-          formik={formik}
-          placeholder={"Подтвердите пароль"}
-          isPass={true}
-          isPassword={true}
-        />
+        {!formik.errors.password && formik.touched.password ? (
+          <Field
+            type={"password"}
+            name={"confirmPassword"}
+            formik={formik}
+            placeholder={"Подтвердите пароль"}
+            isPassword={true}
+          />
+        ) : null}
+
+        {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
+          <div className="red centre-text">{formik.errors.confirmPassword}</div>
+        ) : null}
 
         <FormButton formik={formik} text={"Далее"} type="submit" />
       </form>

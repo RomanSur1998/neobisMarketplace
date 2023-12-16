@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "../ModalButton/ModalButton.module.scss";
 
-const ModalButton = ({ text, button }) => {
+const ModalButton = ({ text, formik }) => {
   return (
-    <button className={!button ? styles.button : styles.btnGray}>{text}</button>
+    <button className={formik.isValid ? styles.button : styles.btnGray}>
+      {text}
+    </button>
   );
 };
 

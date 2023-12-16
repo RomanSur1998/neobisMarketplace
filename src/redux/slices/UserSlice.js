@@ -14,8 +14,16 @@ export const userSlice = createSlice({
   reducers: {
     setUser(state, action) {
       state.user = {
+        ...state.user,
         email: action.payload.email,
         username: action.payload.username,
+        password: action.payload.password,
+      };
+    },
+    setLogin(state, action) {
+      state.user = {
+        username: action.payload.username,
+        password: action.payload.password,
       };
     },
     setShowPass(state, action) {
@@ -23,5 +31,5 @@ export const userSlice = createSlice({
     },
   },
 });
-export const { setUser, setShowPass } = userSlice.actions;
+export const { setUser, setShowPass, setLogin } = userSlice.actions;
 export default userSlice.reducer;

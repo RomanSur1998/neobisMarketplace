@@ -31,7 +31,7 @@ const ProfilePage = () => {
                 type="text"
                 className={styles.field}
                 placeholder="Логин"
-                value={"Roman"}
+                // value={"Roman"}
               />
 
               <input

@@ -1,11 +1,14 @@
 import { useFormik } from "formik";
 import React from "react";
-import styles from "../LoginForm/LoginForm.module.scss";
 import { validationSchema } from "../../helpers/loginShema";
 import Field from "../Field/Field";
 import FormButton from "../FormButton/FormButton";
+import styles from "../LoginForm/LoginForm.module.scss";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../redux/slices/UserSlice";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -13,6 +16,7 @@ const LoginForm = () => {
     },
     onSubmit: (values) => {
       console.log(values, "values");
+      dispatch(setLogin(values));
     },
     validationSchema,
   });

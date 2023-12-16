@@ -18,7 +18,7 @@ const Field = ({ name, type, formik, placeholder, isPassword }) => {
         <div className={styles.labelContainer}></div>
         <div className={styles.showPass}>
           <input
-            className={!isPassword ? "input field" : "input password"}
+            className={!isPassword ? "input field " : "input password"}
             type={isShowPass ? "text" : type}
             id={name}
             name={name}
