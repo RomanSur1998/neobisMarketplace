@@ -6,6 +6,7 @@ const initialState = {
   error: false,
   status: null,
   isShowPass: false,
+  phoneNumber: "",
 };
 
 export const userSlice = createSlice({
@@ -28,6 +29,9 @@ export const userSlice = createSlice({
     },
     setShowPass(state, action) {
       state.isShowPass = action.payload;
+    },
+    setPhoneNumber(state, action) {
+      state.phoneNumber = action.payload;
     },
   },
 });

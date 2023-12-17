@@ -8,6 +8,7 @@ import myProducts from "../../assets/icons/my_products.svg";
 import { useNavigate } from "react-router";
 import OutModal from "../../components/OutModal/OutModal";
 import styles from "../ProfileLayout/ProfileLayouts.module.scss";
+import ModalCode from "../../components/ModalCode/ModalCode";
 
 const ProfileLayouts = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
@@ -72,10 +73,13 @@ const ProfileLayouts = ({ children }) => {
         <OutModal isActive={isActive} handleActive={handleActive}>
           <img src={confirmLogout} alt="" />
           <h3>Вы действительно хотите выйти с приложения?</h3>
-          <button>Выйти</button>
-          <button onClick={handleActive}>Отмена</button>
+          <button className={styles.buttonOut}>Выйти</button>
+          <button onClick={handleActive} className={styles.buttonCancel}>
+            Отмена
+          </button>
         </OutModal>
       ) : null}
+      {<ModalCode />}
     </>
   );
 };

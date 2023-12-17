@@ -4,7 +4,9 @@ import styles from "../Modal/Modal.module.scss";
 import ModalButton from "../ModalButton/ModalButton";
 import { validationSchema } from "../../helpers/phoneShema";
 import { useFormik } from "formik";
-import { phoneMask } from "../../helpers/phoneMask";
+
+import MaskedInput from "react-text-mask";
+import { phoneNumberMask } from "../../helpers/phoneMask";
 
 const ModalPhone = ({ isActive, setIsActive }) => {
   const formik = useFormik({
@@ -12,7 +14,8 @@ const ModalPhone = ({ isActive, setIsActive }) => {
       phoneNumber: "",
     },
     onSubmit: (values) => {
-      console.log(values, "Phone Number");
+      values.phoneNumber = values.phoneNumber.replace(/\(|\)|\-|\s/g, "");
+      console.log(values.phoneNumber, "Phone Number");
       setIsActive(!isActive);
     },
     validationSchema,
@@ -28,13 +31,14 @@ const ModalPhone = ({ isActive, setIsActive }) => {
         <h3>Изменить номер телефона </h3>
         <img src={phone} alt="" />
         <h4> Введите номер телефона </h4>
-        <h5>Мы отправим вам СМС с кодом подтвержения</h5>
+        <p>Мы отправим вам СМС с кодом подтвержения</p>
         <form onSubmit={formik.handleSubmit}>
-          <input
+          <MaskedInput
+            id="phoneNumber"
             type="text"
-            placeholder="0(000) 000 000"
             name="phoneNumber"
-            // value={phoneMask(formik.values.phoneNumber)}
+            mask={phoneNumberMask}
+            placeholder="0(000) 000 000"
             value={formik.values.phoneNumber}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -42,7 +46,7 @@ const ModalPhone = ({ isActive, setIsActive }) => {
 
           {/* если стейт будет то отодбдбразить данную ошибку  */}
           {/* <h4 className="red">Данный номер уже зарегестрирован</h4> */}
-          <ModalButton text={"Далее"} formik={formik} />
+          <ModalButton text={"Далее"} formik={formik} type="submit" />
         </form>
       </div>
     </div>

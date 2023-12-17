@@ -1,0 +1,35 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalContent {
+  width: 560px;
+  height: 410px;
+  background-color: white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modalContent input {
+  width: 250px;
+  height: 34px;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.modalContent input::placeholder {
+  font-size: 28px;
+  text-align: center;
+  color: #c0c0c0;
+}
