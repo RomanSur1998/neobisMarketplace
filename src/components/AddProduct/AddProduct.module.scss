@@ -1,0 +1,50 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+}
+.modalContent {
+  width: 565px;
+  height: 460px;
+  background-color: white;
+  border-radius: 30px;
+}
+.inputFile {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.imgLoad {
+  cursor: pointer;
+}
+.imgPreviw {
+  border-radius: 12px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.preview {
+  display: flex;
+  gap: 10px;
+}
+.formBlock {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+.input {
+  width: 500px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #9ca4ab;
+  border-radius: 12px;
+  padding-left: 10px;
+}

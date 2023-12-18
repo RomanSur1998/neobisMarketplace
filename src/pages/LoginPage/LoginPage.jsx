@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 
 const LoginPage = () => {
-  const notify = () =>
+  const uncorrectUser = () =>
     toast.error("Неверный логин или пароль", {
       position: "top-center",
       autoClose: 5000,
@@ -18,6 +18,7 @@ const LoginPage = () => {
       progress: undefined,
       theme: "colored",
     });
+
   return (
     <>
       <section className={styles.container}>
@@ -25,7 +26,7 @@ const LoginPage = () => {
           <img src={card} alt="" />
         </div>
         <div className={styles.form}>
-          <LoginForm />
+          <LoginForm uncorrectUser={uncorrectUser} />
           <Link to={"/registr"} className={styles.purpule}>
             Зарегистрироваться
           </Link>

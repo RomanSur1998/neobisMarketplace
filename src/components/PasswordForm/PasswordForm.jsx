@@ -5,10 +5,12 @@ import FormButton from "../FormButton/FormButton";
 import { validationSchema } from "../../helpers/passShema";
 import styles from "../PasswordForm/PasswordForm.module.scss";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/slices/UserSlice";
+import { registUser, setUser } from "../../redux/slices/UserSlice";
 import { getUsername } from "../../helpers/formatUsername/getUsername";
+import { useNavigate } from "react-router";
 
 const PasswordForm = () => {
+  const navigate = useNavigate;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -16,7 +18,7 @@ const PasswordForm = () => {
       confirmPassword: "",
     },
     onSubmit: (values) => {
-      dispatch(setUser(getUsername(values)));
+      dispatch(registUser(getUsername(values)));
     },
     validationSchema,
   });

@@ -5,9 +5,11 @@ import Field from "../Field/Field";
 import FormButton from "../FormButton/FormButton";
 import styles from "../LoginForm/LoginForm.module.scss";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../../redux/slices/UserSlice";
+import { loginUser, setLogin } from "../../redux/slices/UserSlice";
+import { useNavigate } from "react-router";
 
-const LoginForm = () => {
+const LoginForm = ({ uncorrectUser }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -16,7 +18,9 @@ const LoginForm = () => {
     },
     onSubmit: (values) => {
       console.log(values, "values");
-      dispatch(setLogin(values));
+      dispatch(
+        loginUser({ data: values, uncorrectUser: uncorrectUser, navigate })
+      );
     },
     validationSchema,
   });

@@ -8,7 +8,12 @@ import { useFormik } from "formik";
 import MaskedInput from "react-text-mask";
 import { phoneNumberMask } from "../../helpers/phoneMask";
 
-const ModalPhone = ({ isActive, setIsActive }) => {
+const ModalPhone = ({
+  isActive,
+  setIsActive,
+  setIsCodeModalActive,
+  isCodeModalActive,
+}) => {
   const formik = useFormik({
     initialValues: {
       phoneNumber: "",
@@ -17,6 +22,7 @@ const ModalPhone = ({ isActive, setIsActive }) => {
       values.phoneNumber = values.phoneNumber.replace(/\(|\)|\-|\s/g, "");
       console.log(values.phoneNumber, "Phone Number");
       setIsActive(!isActive);
+      setIsCodeModalActive(!isCodeModalActive);
     },
     validationSchema,
   });

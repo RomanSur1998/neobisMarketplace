@@ -4,9 +4,11 @@ import Navbar from "../../components/Navbar/Navbar";
 import profile from "../../assets/icons/user.svg";
 import Modal from "../../components/Modal/ModalPhone";
 import styles from "../ProfilePage/ProfilePage.module.scss";
+import ModalCode from "../../components/ModalCode/ModalCode";
 
 const ProfilePage = () => {
   const [isActive, setIsActive] = useState();
+  const [isCodeModalActive, setIsCodeModalActive] = useState("");
 
   function handleActive() {
     setIsActive(!isActive);
@@ -52,7 +54,20 @@ const ProfilePage = () => {
             <h4>example@email.com</h4>
           </div>
         </section>
-        {isActive && <Modal isActive={isActive} setIsActive={setIsActive} />}
+        {isActive && (
+          <Modal
+            isActive={isActive}
+            setIsActive={setIsActive}
+            setIsCodeModalActive={setIsCodeModalActive}
+            isCodeModalActive={isCodeModalActive}
+          />
+        )}
+        {isCodeModalActive ? (
+          <ModalCode
+            isCodeModalActive={isCodeModalActive}
+            setIsCodeModalActive={setIsCodeModalActive}
+          />
+        ) : null}
       </>
     </ProfileLayouts>
   );

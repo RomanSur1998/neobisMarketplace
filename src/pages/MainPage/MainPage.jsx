@@ -5,6 +5,7 @@ import styles from "../MainPage/MainPage.module.scss";
 import Card from "../../components/Card/Card";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import AddProduct from "../../components/AddProduct/AddProduct";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const MainPage = () => {
           <Card />
         </section>
       </section>
+      <AddProduct />
     </>
   );
 };

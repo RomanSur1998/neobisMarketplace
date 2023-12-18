@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { api } from "../../api/api";
 
 const initialState = {
   user: {},
@@ -8,6 +9,32 @@ const initialState = {
   isShowPass: false,
   phoneNumber: "",
 };
+
+export const registUser = createAsyncThunk(
+  "user/registUser",
+  async ({ data, navigate }) => {
+    try {
+      console.log("Запрос проходит");
+      const respose = await api.registration(data, navigate);
+      console.log(respose, respose);
+      // navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  "user/loginUser",
+  async ({ data, uncorrectUser, navigate }) => {
+    try {
+      const response = await api.autorisation(data, uncorrectUser, navigate);
+      console.log("response", response);
+    } catch (error) {
+      console.error(error, "Error login");
+    }
+  }
+);
 
 export const userSlice = createSlice({
   name: "user",
@@ -33,6 +60,11 @@ export const userSlice = createSlice({
     setPhoneNumber(state, action) {
       state.phoneNumber = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(registUser.fulfilled, (state, action) => {
+      state.status = "ok";
+    });
   },
 });
 export const { setUser, setShowPass, setLogin } = userSlice.actions;

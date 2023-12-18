@@ -1,0 +1,55 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+}
+.modalContent {
+  width: 565px;
+  height: 700px;
+  background-color: white;
+  border-radius: 30px;
+}
+.modalContent img {
+  cursor: pointer;
+}
+.swiper {
+  width: 532px;
+  height: 320px;
+  border-radius: 24px;
+}
+.swiperSlide {
+  width: 532px;
+  height: 320px;
+}
+.info {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+.likeBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.info p {
+  color: #c0c0c0;
+  font-size: 16px;
+  font-weight: 300;
+}
+.info + h3 {
+  color: #5458ea;
+}
+.close {
+  display: flex;
+  justify-content: end;
+  margin: 20px;
+}

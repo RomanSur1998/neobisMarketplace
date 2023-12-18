@@ -8,7 +8,6 @@ import myProducts from "../../assets/icons/my_products.svg";
 import { useNavigate } from "react-router";
 import OutModal from "../../components/OutModal/OutModal";
 import styles from "../ProfileLayout/ProfileLayouts.module.scss";
-import ModalCode from "../../components/ModalCode/ModalCode";
 
 const ProfileLayouts = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
@@ -79,7 +78,6 @@ const ProfileLayouts = ({ children }) => {
           </button>
         </OutModal>
       ) : null}
-      {<ModalCode />}
     </>
   );
 };
