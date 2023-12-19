@@ -8,6 +8,10 @@ import { useState } from "react";
 import AddProduct from "../../components/AddProduct/AddProduct";
 
 const MainPage = () => {
+  const [isActiveAdd, setIsActiceAdd] = useState(false);
+  function handleActiceAddProduct() {
+    setIsActiceAdd(!isActiveAdd);
+  }
   const navigate = useNavigate();
 
   return (
@@ -19,9 +23,7 @@ const MainPage = () => {
           <div className={styles.headersRight}>
             <button
               className="button purple margin"
-              onClick={() => {
-                setIsActive(!isActive);
-              }}
+              onClick={handleActiceAddProduct}
             >
               Подать объявление
             </button>
@@ -65,7 +67,9 @@ const MainPage = () => {
           <Card />
         </section>
       </section>
-      <AddProduct />
+      {isActiveAdd ? (
+        <AddProduct handleActiceAddProduct={handleActiceAddProduct} />
+      ) : null}
     </>
   );
 };
