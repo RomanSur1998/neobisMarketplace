@@ -5,6 +5,7 @@ import profile from "../../assets/icons/user.svg";
 import Modal from "../../components/Modal/ModalPhone";
 import styles from "../ProfilePage/ProfilePage.module.scss";
 import ModalCode from "../../components/ModalCode/ModalCode";
+import EditModal from "../../components/EditModal/EditModal";
 
 const ProfilePage = () => {
   const [isActive, setIsActive] = useState();

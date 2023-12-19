@@ -4,11 +4,16 @@ import heart from "../../assets/icons/heart.svg";
 import dots from "../../assets/icons/dots.svg";
 import styles from "../Card/Card.module.scss";
 import DetailsModal from "../DetailsModal/DetailsModal";
+import SelectionModal from "../SelectionModal/SelectionModal";
 
 const Card = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isSelect, setIsSelect] = useState(false);
   function handleIsActive() {
     setIsActive(!isActive);
+  }
+  function handleIsSelect() {
+    setIsSelect(!isSelect);
   }
   return (
     <>
@@ -24,8 +29,9 @@ const Card = () => {
             <span>100</span>
           </div>
 
-          <img src={dots} alt="" />
+          <img src={dots} alt="" onClick={handleIsSelect} />
         </div>
+        {isSelect ? <SelectionModal handleIsSelect={handleIsSelect} /> : null}
       </div>
       {isActive ? <DetailsModal handleIsActive={handleIsActive} /> : null}
     </>

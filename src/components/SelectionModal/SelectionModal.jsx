@@ -3,11 +3,17 @@ import deleteIcon from "../../assets/icons/delete.svg";
 import editIcon from "../../assets/icons/edit.svg";
 import styles from "../SelectionModal/SelectionModal.module.scss";
 
-const SelectionModal = () => {
+const SelectionModal = ({ handleIsActive }) => {
   return (
-    <div>
-      <img src={editIcon} alt="" />
-      <img src={deleteIcon} alt="" />
+    <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+      <div className={styles.elemContainer}>
+        <img src={editIcon} alt="" />
+        <span>Изменить</span>
+      </div>
+      <div className={styles.elemContainer}>
+        <img src={deleteIcon} alt="" />
+        <span>Удалить</span>
+      </div>
     </div>
   );
 };
