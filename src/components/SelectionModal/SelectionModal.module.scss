@@ -1,17 +1,16 @@
-.container {
+.containerSelect {
   width: 135px;
   height: 95px;
-  //   background-color: #f7f6f9;
-  background-color: azure;
+  background-color: white;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 15px;
   position: absolute;
-  bottom: -65px;
+  bottom: -85px;
   left: 120px;
-  z-index: 5;
+  z-index: 1;
 }
 .elemContainer {
   display: flex;

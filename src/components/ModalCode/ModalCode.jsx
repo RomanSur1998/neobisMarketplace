@@ -41,7 +41,7 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
         setIsCodeModalActive(!isCodeModalActive);
       }}
     >
-      <div className={styles.modalContent}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <h2>Изменить номер телефона</h2>
         <img src={contact} alt="" />
         <h3>Введите код из СМС</h3>

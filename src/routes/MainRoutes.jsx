@@ -9,7 +9,7 @@ import OwnProducts from "../pages/OwnProducts/OwnProducts";
 import MainPage from "../pages/MainPage/MainPage";
 
 const MainRoutes = () => {
-  const PRIVATE_ROUT_COLLECTION = {};
+  const PRIVATE_ROUT_COLLECTION = [];
   const BASE_ROTES_COLLECTION = [
     {
       link: "/",

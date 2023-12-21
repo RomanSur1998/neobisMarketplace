@@ -6,7 +6,7 @@ import styles from "../Card/Card.module.scss";
 import DetailsModal from "../DetailsModal/DetailsModal";
 import SelectionModal from "../SelectionModal/SelectionModal";
 
-const Card = () => {
+const Card = ({ pathname }) => {
   const [isActive, setIsActive] = useState(false);
   const [isSelect, setIsSelect] = useState(false);
   function handleIsActive() {
@@ -29,7 +29,7 @@ const Card = () => {
             <span>100</span>
           </div>
 
-          <img src={dots} alt="" onClick={handleIsSelect} />
+          {pathname ? <img src={dots} alt="" onClick={handleIsSelect} /> : null}
         </div>
         {isSelect ? <SelectionModal handleIsSelect={handleIsSelect} /> : null}
       </div>

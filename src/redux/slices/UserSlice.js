@@ -29,6 +29,7 @@ export const loginUser = createAsyncThunk(
   async ({ data, uncorrectUser, navigate }) => {
     try {
       const response = await api.autorisation(data, uncorrectUser, navigate);
+
       console.log("response", response);
     } catch (error) {
       console.error(error, "Error login");

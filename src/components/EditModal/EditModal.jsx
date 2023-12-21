@@ -8,12 +8,12 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import styles from "../EditModal/EditModal.module.scss";
 
-const EditModal = () => {
+const EditModal = ({ handleEditActive }) => {
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalContent}>
+    <div className={styles.modal} onClick={handleEditActive}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.close}>
-          <img src={remove} alt="" />
+          <img src={remove} alt="" onClick={handleEditActive} />
         </div>
         <Swiper
           pagination={{
