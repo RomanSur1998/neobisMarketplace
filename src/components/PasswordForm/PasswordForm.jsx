@@ -5,9 +5,9 @@ import FormButton from "../FormButton/FormButton";
 import { validationSchema } from "../../helpers/passShema";
 import styles from "../PasswordForm/PasswordForm.module.scss";
 import { useDispatch } from "react-redux";
-import { registUser, setUser } from "../../redux/slices/UserSlice";
 import { getUsername } from "../../helpers/formatUsername/getUsername";
 import { useNavigate } from "react-router";
+import { registUser } from "../../redux/slices/UserActions";
 
 const PasswordForm = () => {
   const navigate = useNavigate;
@@ -18,7 +18,6 @@ const PasswordForm = () => {
       confirmPassword: "",
     },
     onSubmit: (values) => {
-      // dispatch(registUser(getUsername(values)));
       dispatch(registUser({ data: getUsername(values), navigate }));
     },
     validationSchema,

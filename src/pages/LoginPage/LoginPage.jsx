@@ -32,8 +32,6 @@ const LoginPage = () => {
           </Link>
         </div>
       </section>
-      <ToastContainer />
-      {/* <button onClick={notify}>Toasty</button> */}
     </>
   );
 };

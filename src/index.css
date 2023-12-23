@@ -51,6 +51,10 @@
   border-bottom: 2px solid rgba(192, 192, 192, 1);
   outline: 0;
 }
+.border_red {
+  border-bottom: 2px solid red;
+  outline: 0;
+}
 
 .password {
   font-weight: 900;

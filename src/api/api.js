@@ -24,4 +24,17 @@ export const api = {
       //   ! Обработка ошибки если ошибка есть то , нужно  выполнить тостер
     }
   },
+  check: async function (data, navigate, checkUser) {
+    try {
+      const response = await configuretedAxios.post(
+        "/api/checkAvailability",
+        data
+      );
+      navigate("/pass");
+      return response;
+    } catch (error) {
+      checkUser();
+      console.error("error check", error);
+    }
+  },
 };

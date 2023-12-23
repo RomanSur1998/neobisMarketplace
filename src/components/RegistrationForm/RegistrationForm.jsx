@@ -5,10 +5,12 @@ import Field from "../Field/Field";
 import { validationSchema } from "../../helpers/registrShema";
 import FormButton from "../FormButton/FormButton";
 import { useNavigate } from "react-router";
-import { setUsername } from "../../helpers/formatUsername/setUsername";
+import { useDispatch } from "react-redux";
+import { checkAvialability } from "../../redux/slices/UserActions";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ checkUser }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -16,8 +18,9 @@ const RegistrationForm = () => {
       email: "",
     },
     onSubmit: (value) => {
-      setUsername(value);
-      navigate("/pass");
+      dispatch(
+        checkAvialability({ data: value, navigate, checkUser: checkUser })
+      );
     },
     validationSchema,
   });

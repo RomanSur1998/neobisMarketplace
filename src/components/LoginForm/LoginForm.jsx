@@ -5,8 +5,8 @@ import Field from "../Field/Field";
 import FormButton from "../FormButton/FormButton";
 import styles from "../LoginForm/LoginForm.module.scss";
 import { useDispatch } from "react-redux";
-import { loginUser, setLogin } from "../../redux/slices/UserSlice";
 import { useNavigate } from "react-router";
+import { loginUser } from "../../redux/slices/UserActions";
 
 const LoginForm = ({ uncorrectUser }) => {
   const navigate = useNavigate();
@@ -21,6 +21,7 @@ const LoginForm = ({ uncorrectUser }) => {
       dispatch(
         loginUser({ data: values, uncorrectUser: uncorrectUser, navigate })
       );
+      l;
     },
     validationSchema,
   });

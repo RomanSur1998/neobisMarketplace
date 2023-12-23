@@ -5,10 +5,25 @@ import arrow from "../../assets/icons/arrow.svg";
 import open from "../../assets/icons/is-show-pass.svg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import styles from "../RegistrPage/RegistrationPage.module.scss";
 
 const RegistrationPage = () => {
+  const checkUser = () =>
+    toast.error("Данный пользователь уже зарегистрирован", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const navigate = useNavigate();
+  const { error } = useSelector((state) => state.user);
+  console.log(error, "user");
 
   return (
     <>
@@ -34,10 +49,11 @@ const RegistrationPage = () => {
             </div>
           </div>
           <div className={styles.form}>
-            <RegistrationForm />{" "}
+            <RegistrationForm checkUser={checkUser} />{" "}
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 };

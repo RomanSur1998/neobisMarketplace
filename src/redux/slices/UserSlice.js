@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../../api/api";
+import { checkAvialability, loginUser, registUser } from "./UserActions";
 
 const initialState = {
   user: {},
@@ -10,32 +11,46 @@ const initialState = {
   phoneNumber: "",
 };
 
-export const registUser = createAsyncThunk(
-  "user/registUser",
-  async ({ data, navigate }) => {
-    try {
-      console.log("Запрос проходит");
-      const respose = await api.registration(data, navigate);
-      console.log(respose, respose);
-      // navigate("/");
-    } catch (error) {
-      console.error(error);
-    }
-  }
-);
+// export const registUser = createAsyncThunk(
+//   "user/registUser",
+//   async ({ data, navigate }) => {
+//     try {
+//       console.log("Запрос проходит");
+//       const respose = await api.registration(data, navigate);
+//       console.log(respose, respose);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+// );
 
-export const loginUser = createAsyncThunk(
-  "user/loginUser",
-  async ({ data, uncorrectUser, navigate }) => {
-    try {
-      const response = await api.autorisation(data, uncorrectUser, navigate);
+// export const checkAvialability = createAsyncThunk(
+//   "user/checkAvialability",
+//   async ({ data, navigate, checkUser }) => {
+//     const respose = await api.check(data, navigate, checkUser);
+//     console.log(respose);
+//     try {
+//     } catch (error) {
+//       console.error("error check", error);
+//     }
+//   }
+// );
 
-      console.log("response", response);
-    } catch (error) {
-      console.error(error, "Error login");
-    }
-  }
-);
+// export const loginUser = createAsyncThunk(
+//   "user/loginUser",
+//   async ({ data, uncorrectUser, navigate }) => {
+//     try {
+//       const response = await api.autorisation(data, uncorrectUser, navigate);
+//       let tokens = JSON.parse(localStorage.getItem("tokens"));
+//       tokens = response.data.jwtToken;
+//       localStorage.setItem("tokens", JSON.stringify(tokens));
+
+//       console.log("response", response);
+//     } catch (error) {
+//       console.error(error, "Error login");
+//     }
+//   }
+// );
 
 export const userSlice = createSlice({
   name: "user",
@@ -55,6 +70,9 @@ export const userSlice = createSlice({
         password: action.payload.password,
       };
     },
+    setToken(state, action) {
+      state.token = action.payload;
+    },
     setShowPass(state, action) {
       state.isShowPass = action.payload;
     },
@@ -66,7 +84,13 @@ export const userSlice = createSlice({
     builder.addCase(registUser.fulfilled, (state, action) => {
       state.status = "ok";
     });
+    builder.addCase(checkAvialability.rejected, (state, action) => {
+      state.error = false;
+    });
+    builder.addCase(checkAvialability.fulfilled, (state, action) => {
+      state.error = true;
+    });
   },
 });
-export const { setUser, setShowPass, setLogin } = userSlice.actions;
+export const { setUser, setShowPass, setLogin, setToken } = userSlice.actions;
 export default userSlice.reducer;
