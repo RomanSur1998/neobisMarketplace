@@ -4,24 +4,44 @@ import remove from "../../assets/icons/remove.svg";
 import styles from "../AddProduct/AddProduct.module.scss";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useDispatch } from "react-redux";
+import { setProduct } from "../../redux/slices/ProductsSlice";
 
-const AddProduct = ({ handleActiceAddProduct }) => {
+const AddProduct = ({ handleActiveAddProduct }) => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      file: [],
+      files: [],
       price: "",
       title: "",
       shotDescr: "",
       longDescr: "",
     },
     onSubmit: (value) => {
-      const formData = new FormData();
-      formData.append("files", value.file);
-      formData.append("price", value.price);
-      formData.append("name", value.title);
-      formData.append("description", value.shotDescr);
-      formData.append("description_full", value.longDescr);
-      console.log(value);
+      // ! ---------------
+      const newData = new FormData();
+      newData.append("files", value.files);
+      newData.append("price", value.price);
+      newData.append("name", value.title);
+      newData.append("description", value.shotDescr);
+      newData.append("description_full", value.longDescr);
+      console.log("form data ", newData);
+      const fileArray = Object.values(formik.values.files);
+      const Data = {
+        ...value,
+        files: fileArray.map((elem) => {
+          return URL.createObjectURL(elem);
+        }),
+        id: Math.random() * 100,
+        reiting: 100,
+        name: value.title,
+        description: value.shotDescr,
+        fullDescription: value.longDescr,
+      };
+      console.log(Data);
+      dispatch(setProduct(Data));
+      () => handleActiveAddProduct();
+      // ! ---------------
     },
     validationSchema: yup.object({
       price: yup.string().required(),
@@ -30,26 +50,26 @@ const AddProduct = ({ handleActiceAddProduct }) => {
       longDescr: yup.string().required(),
     }),
   });
-  const fileArray = Object.values(formik.values.file);
+  const fileArray = Object.values(formik.values.files);
 
   return (
-    <div className={styles.modal} onClick={handleActiceAddProduct}>
+    <div className={styles.modal} onClick={handleActiveAddProduct}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.remove}>
-          <img src={remove} alt="" onClick={handleActiceAddProduct} />
+          <img src={remove} alt="" onClick={handleActiveAddProduct} />
         </div>
         <form onSubmit={formik.handleSubmit} className={styles.form}>
           <div className={styles.formBlock}>
-            <label htmlFor="file">
+            <label htmlFor="files">
               <input
                 type="file"
-                id="file"
-                name="file"
+                id="files"
+                name="files"
                 className={styles.inputFile}
                 multiple
                 onBlur={formik.handleBlur}
                 onChange={(e) => {
-                  formik.setFieldValue("file", e.target.files);
+                  formik.setFieldValue("files", e.target.files);
                 }}
               />
               <img src={fileDownloader} alt="" className={styles.imgLoad} />

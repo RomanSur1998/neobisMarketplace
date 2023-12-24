@@ -9,7 +9,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import heart from "../../assets/icons/heart.svg";
 import styles from "../DetailsModal/DetailsModal.module.scss";
 
-const DetailsModal = ({ handleIsActive }) => {
+const DetailsModal = ({ handleIsActive, elem }) => {
   return (
     <div className={styles.modal} onClick={handleIsActive}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -24,42 +24,24 @@ const DetailsModal = ({ handleIsActive }) => {
           modules={[Pagination, Navigation]}
           className={styles.swiper}
         >
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
+          {elem?.files.map((item) => {
+            return (
+              <SwiperSlide>
+                <img className={styles.swiperSlide} src={item} alt="" />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
         <div className={styles.info}>
-          <h3 className="purple_text">12000 сом</h3>
+          <h3 className="purple_text">{elem?.price} $</h3>
           <div className={styles.likeBlock}>
             <img src={heart} alt="" />
-            <span>Нравиться : 1 M</span>
+            <span>Нравиться : {elem?.reiting}</span>
           </div>
-          <h3>Adidas Yeezy 500</h3>
-          <p>
-            The Yeezy 500 Blush is a limited edition shoe designed by Kanye West
-            for Adidas
-          </p>
+          <h3>{elem?.name}</h3>
+          <p>{elem?.description}</p>
           <h4>Детальное описание</h4>
-          <p>
-            It features a unique design, with a chunky silhouette and a blush
-            colorway. The shoe has a mix of suede, mesh and leather, and it's
-            considered a highly sought-after item among shoe enthusiasts.
-          </p>
+          <p>{elem?.fullDescription}</p>
         </div>
       </div>
     </div>

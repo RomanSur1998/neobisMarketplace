@@ -13,7 +13,7 @@ $width: 90%;
   position: relative;
 }
 .cardImage {
-  width: 90%;
+  /* width: 90%; */
   margin: 6px auto;
   border-radius: 6px;
 }
@@ -23,6 +23,11 @@ $width: 90%;
   font-size: 14px;
   margin: 0 auto;
   cursor: pointer;
+  transition: 0.3s;
+}
+.title:hover {
+  scale: 1.02;
+  transition: 0.3s;
 }
 .price {
   margin: 0 auto;
@@ -41,4 +46,12 @@ $width: 90%;
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.reiting {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.reiting:hover {
+  scale: 1.2;
+  transition: 0.3s;
 }

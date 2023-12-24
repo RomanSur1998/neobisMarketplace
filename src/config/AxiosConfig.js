@@ -20,3 +20,5 @@ export const confAxios = () => {
   });
   return instenseAsiox;
 };
+
+configuretedAxios.interceptors.response.use({});

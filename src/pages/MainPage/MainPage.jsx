@@ -6,13 +6,15 @@ import Card from "../../components/Card/Card";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import AddProduct from "../../components/AddProduct/AddProduct";
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
   const [isActiveAdd, setIsActiceAdd] = useState(false);
-  function handleActiceAddProduct() {
+  function handleActiveAddProduct() {
     setIsActiceAdd(!isActiveAdd);
   }
   const navigate = useNavigate();
+  const { product } = useSelector((state) => state.product);
 
   return (
     <>
@@ -23,7 +25,7 @@ const MainPage = () => {
           <div className={styles.headersRight}>
             <button
               className="button purple margin"
-              onClick={handleActiceAddProduct}
+              onClick={handleActiveAddProduct}
             >
               Подать объявление
             </button>
@@ -41,34 +43,15 @@ const MainPage = () => {
           </div>
         </nav>
         <section className={styles.mainContent}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {product
+            ? product?.map((elem) => {
+                return <Card elem={elem} key={elem.id} />;
+              })
+            : null}
         </section>
       </section>
       {isActiveAdd ? (
-        <AddProduct handleActiceAddProduct={handleActiceAddProduct} />
+        <AddProduct handleActiveAddProduct={handleActiveAddProduct} />
       ) : null}
     </>
   );
