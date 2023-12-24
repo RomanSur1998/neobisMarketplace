@@ -7,3 +7,16 @@ export const configuretedAxios = axios.create({
   //   "Content-Type": "application/json",
   // },
 });
+
+export const confAxios = () => {
+  const tokens = JSON.parse(localStorage.getItem("tokens"));
+  const Authorization = tokens ? `Bearer ${tokens}` : null;
+  const instenseAsiox = axios.create({
+    baseURL: API,
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: Authorization,
+    },
+  });
+  return instenseAsiox;
+};
