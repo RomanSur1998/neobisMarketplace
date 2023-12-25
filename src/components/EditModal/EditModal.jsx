@@ -7,8 +7,11 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import styles from "../EditModal/EditModal.module.scss";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { setApdateProduct } from "../../redux/slices/ProductsSlice";
 
 const EditModal = ({ handleEditActive, elem }) => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       files: elem.files,
@@ -16,6 +19,24 @@ const EditModal = ({ handleEditActive, elem }) => {
       title: elem.name,
       shotDescr: elem.description,
       longDescr: elem.fullDescription,
+    },
+    onSubmit: (values) => {
+      console.log({
+        ...elem,
+        price: values.price,
+        name: values.title,
+        description: values.shotDescr,
+        fullDescription: values.longDescr,
+      });
+      dispatch(
+        setApdateProduct({
+          ...elem,
+          price: values.price,
+          name: values.title,
+          description: values.shotDescr,
+          fullDescription: values.longDescr,
+        })
+      );
     },
   });
   return (
@@ -34,14 +55,14 @@ const EditModal = ({ handleEditActive, elem }) => {
         >
           {elem?.files.map((item) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={Math.random()}>
                 <img className={styles.swiperSlide} src={item} alt="" />
               </SwiperSlide>
             );
           })}
         </Swiper>
 
-        <form action="" className={styles.info}>
+        <form onSubmit={formik.handleSubmit} className={styles.info}>
           <input
             type="text"
             name="price"

@@ -341,136 +341,7 @@ const initialState = {
         "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
     },
   ],
-  favoritesProduct: [
-    // {
-    //   id: 1,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 2,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 3,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 4,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 5,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 6,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 7,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-    // {
-    //   id: 8,
-    //   isFavor: false,
-    //   files: [
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
-    //   ],
-    //   reiting: 100,
-    //   price: 1200,
-    //   name: "BMW M4 Coupe: A Two-Door",
-    //   description:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    //   fullDescription:
-    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    // },
-  ],
+  favoritesProduct: [],
 };
 export const productSlice = createSlice({
   name: "product",
@@ -503,9 +374,31 @@ export const productSlice = createSlice({
         return product;
       });
     },
+    setApdateProduct(state, action) {
+      const productIdToUpdate = action.payload.id;
+
+      state.product = state.product.map((elem) => {
+        if (elem.id === productIdToUpdate) {
+          return action.payload;
+        }
+
+        return elem;
+      });
+    },
+    setProductDelete(state, action) {
+      const productIdToUpdate = action.payload.id;
+      state.product = state.product.filter(
+        (elem) => elem.id !== productIdToUpdate
+      );
+    },
   },
 });
 
-export const { setProduct, setMyproduct, setFavoritesProduct, setIsFavor } =
-  productSlice.actions;
+export const {
+  setProduct,
+  setMyproduct,
+  setFavoritesProduct,
+  setIsFavor,
+  setApdateProduct,
+} = productSlice.actions;
 export default productSlice.reducer;
