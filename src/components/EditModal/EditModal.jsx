@@ -1,14 +1,23 @@
 import React from "react";
 import remove from "../../assets/icons/remove.svg";
-import boots from "../../assets/pictures/boots.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import styles from "../EditModal/EditModal.module.scss";
+import { useFormik } from "formik";
 
-const EditModal = ({ handleEditActive }) => {
+const EditModal = ({ handleEditActive, elem }) => {
+  const formik = useFormik({
+    initialValues: {
+      files: elem.files,
+      price: elem.price,
+      title: elem.name,
+      shotDescr: elem.description,
+      longDescr: elem.fullDescription,
+    },
+  });
   return (
     <div className={styles.modal} onClick={handleEditActive}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -23,32 +32,55 @@ const EditModal = ({ handleEditActive }) => {
           modules={[Pagination, Navigation]}
           className={styles.swiper}
         >
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={styles.swiperSlide} src={boots} alt="" />
-          </SwiperSlide>
+          {elem?.files.map((item) => {
+            return (
+              <SwiperSlide>
+                <img className={styles.swiperSlide} src={item} alt="" />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
 
         <form action="" className={styles.info}>
-          <input type="text" name="" id="" className={styles.input} />
-          <input type="text" name="" id="" className={styles.input} />
-          <input type="text" name="" id="" className={styles.input} />
-          <input type="text" name="" id="" className={styles.input} />
-          <button className={styles.AddbuttonPurple}>Сохранить</button>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            className={styles.input}
+            value={formik.values.price}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            className={styles.input}
+            value={formik.values.title}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
+          <input
+            type="text"
+            name="shotDescr"
+            id="shotDescr"
+            className={styles.input}
+            value={formik.values.shotDescr}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
+          <input
+            type="text"
+            name="longDescr"
+            id="longDescr"
+            className={styles.input}
+            value={formik.values.longDescr}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
+          <button className={styles.AddbuttonPurple} type="submit">
+            Сохранить
+          </button>
         </form>
       </div>
     </div>

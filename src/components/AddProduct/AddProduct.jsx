@@ -5,7 +5,7 @@ import styles from "../AddProduct/AddProduct.module.scss";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
-import { setProduct } from "../../redux/slices/ProductsSlice";
+import { setMyproduct, setProduct } from "../../redux/slices/ProductsSlice";
 
 const AddProduct = ({ handleActiveAddProduct }) => {
   const dispatch = useDispatch();
@@ -40,6 +40,7 @@ const AddProduct = ({ handleActiveAddProduct }) => {
       };
       console.log(Data);
       dispatch(setProduct(Data));
+      dispatch(setMyproduct(Data));
       () => handleActiveAddProduct();
       // ! ---------------
     },

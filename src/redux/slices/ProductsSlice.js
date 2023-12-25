@@ -4,7 +4,7 @@ const initialState = {
   product: [
     {
       id: 1,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -20,7 +20,7 @@ const initialState = {
     },
     {
       id: 2,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -36,7 +36,7 @@ const initialState = {
     },
     {
       id: 3,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -68,7 +68,7 @@ const initialState = {
     },
     {
       id: 5,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -244,7 +244,7 @@ const initialState = {
     },
     {
       id: 16,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -262,7 +262,7 @@ const initialState = {
   myProduct: [
     {
       id: 1,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -278,7 +278,7 @@ const initialState = {
     },
     {
       id: 2,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -294,7 +294,7 @@ const initialState = {
     },
     {
       id: 3,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -326,7 +326,7 @@ const initialState = {
     },
     {
       id: 5,
-      isFavor: true,
+      isFavor: false,
       files: [
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
         "http://localhost:5173/src/assets/pictures/car_example.jpg",
@@ -342,134 +342,134 @@ const initialState = {
     },
   ],
   favoritesProduct: [
-    {
-      id: 1,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 2,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 3,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 4,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 5,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 6,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 7,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
-    {
-      id: 8,
-      isFavor: true,
-      files: [
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-        "http://localhost:5173/src/assets/pictures/car_example.jpg",
-      ],
-      reiting: 100,
-      price: 1200,
-      name: "BMW M4 Coupe: A Two-Door",
-      description:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-      fullDescription:
-        "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
-    },
+    // {
+    //   id: 1,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 2,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 3,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 4,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 5,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 6,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 7,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
+    // {
+    //   id: 8,
+    //   isFavor: false,
+    //   files: [
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //     "http://localhost:5173/src/assets/pictures/car_example.jpg",
+    //   ],
+    //   reiting: 100,
+    //   price: 1200,
+    //   name: "BMW M4 Coupe: A Two-Door",
+    //   description:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    //   fullDescription:
+    //     "The BMW M4 Coupe is a high-performance version of the BMW M4 roadster and offers an exceptional",
+    // },
   ],
 };
 export const productSlice = createSlice({
@@ -482,10 +482,30 @@ export const productSlice = createSlice({
       state.product = products;
     },
     setMyproduct(state, action) {
-      state.myProduct = [...state.myProduct.pop(action.payload)];
+      const products = [...state.myProduct];
+      products.unshift(action.payload);
+      state.myProduct = products;
+    },
+    setFavoritesProduct(state, action) {
+      state.favoritesProduct = [
+        action.payload,
+        ...state.favoritesProduct.filter(
+          (elem) => elem.id !== action.payload.id
+        ),
+      ];
+    },
+    setIsFavor(state, action) {
+      const productIdToUpdate = action.payload.id;
+      state.product = state.product.map((product) => {
+        if (product.id === productIdToUpdate) {
+          return { ...product, isFavor: true };
+        }
+        return product;
+      });
     },
   },
 });
 
-export const { setProduct, setMyproduct } = productSlice.actions;
+export const { setProduct, setMyproduct, setFavoritesProduct, setIsFavor } =
+  productSlice.actions;
 export default productSlice.reducer;

@@ -5,7 +5,7 @@ import styles from "../SelectionModal/SelectionModal.module.scss";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import EditModal from "../EditModal/EditModal";
 
-const SelectionModal = ({ handleIsSelect }) => {
+const SelectionModal = ({ handleIsSelect, elem }) => {
   const [isActive, setIsActive] = useState(false);
   const [isActiveEdit, setIsActiveEdit] = useState(false);
   function haddleActive() {
@@ -35,7 +35,9 @@ const SelectionModal = ({ handleIsSelect }) => {
         <DeleteModal setIsActive={setIsActive} isActive={isActive} />
       ) : null}
 
-      {isActiveEdit ? <EditModal handleEditActive={handleEditActive} /> : null}
+      {isActiveEdit ? (
+        <EditModal handleEditActive={handleEditActive} elem={elem} />
+      ) : null}
     </>
   );
 };

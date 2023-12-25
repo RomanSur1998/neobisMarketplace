@@ -5,10 +5,21 @@ import dots from "../../assets/icons/dots.svg";
 import styles from "../Card/Card.module.scss";
 import DetailsModal from "../DetailsModal/DetailsModal";
 import SelectionModal from "../SelectionModal/SelectionModal";
+import { useDispatch } from "react-redux";
+import {
+  setFavoritesProduct,
+  setIsFavor,
+} from "../../redux/slices/ProductsSlice";
 
 const Card = ({ pathname, elem }) => {
   const [isActive, setIsActive] = useState(false);
   const [isSelect, setIsSelect] = useState(false);
+  const dispatch = useDispatch();
+  function handleDispatch() {
+    const newObj = { ...elem, isFavor: true };
+    dispatch(setFavoritesProduct(newObj));
+    dispatch(setIsFavor(elem));
+  }
   function handleIsActive() {
     setIsActive(!isActive);
   }
@@ -35,13 +46,16 @@ const Card = ({ pathname, elem }) => {
               src={elem?.isFavor ? heart : heartGray}
               alt=""
               className={styles.reiting}
+              onClick={handleDispatch}
             />
             <span>{elem?.reiting}</span>
           </div>
 
           {pathname ? <img src={dots} alt="" onClick={handleIsSelect} /> : null}
         </div>
-        {isSelect ? <SelectionModal handleIsSelect={handleIsSelect} /> : null}
+        {isSelect ? (
+          <SelectionModal handleIsSelect={handleIsSelect} elem={elem} />
+        ) : null}
       </div>
       {isActive ? (
         <DetailsModal handleIsActive={handleIsActive} elem={elem} />

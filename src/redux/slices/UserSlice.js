@@ -9,6 +9,7 @@ const initialState = {
   status: null,
   isShowPass: false,
   phoneNumber: "",
+  user_photo: null,
 };
 
 export const userSlice = createSlice({
