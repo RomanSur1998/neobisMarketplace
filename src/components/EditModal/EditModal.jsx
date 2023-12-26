@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import remove from "../../assets/icons/remove.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,8 +13,9 @@ import {
   setApdateProduct,
 } from "../../redux/slices/ProductsSlice";
 
-const EditModal = ({ handleEditActive, elem }) => {
+const EditModal = ({ handleEditActive, elem, handleIsSelect }) => {
   const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       files: elem.files,
@@ -42,6 +43,7 @@ const EditModal = ({ handleEditActive, elem }) => {
           fullDescription: values.longDescr,
         })
       );
+      handleEditActive();
     },
   });
   return (

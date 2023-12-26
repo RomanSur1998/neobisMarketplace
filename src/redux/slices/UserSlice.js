@@ -4,12 +4,14 @@ import { checkAvialability, loginUser, registUser } from "./UserActions";
 
 const initialState = {
   user: {},
+  userOwnData: {},
   token: "",
   error: false,
   status: null,
   isShowPass: false,
-  phoneNumber: "",
+  phoneNumber: "0 000 000-000",
   user_photo: null,
+  code: "",
 };
 
 export const userSlice = createSlice({
@@ -39,6 +41,10 @@ export const userSlice = createSlice({
     setPhoneNumber(state, action) {
       state.phoneNumber = action.payload;
     },
+    setCode(state, action) {
+      state.code = action.payload;
+    },
+    setUserOwnData(state, action) {},
   },
   extraReducers: (builder) => {
     builder.addCase(registUser.fulfilled, (state, action) => {
@@ -52,6 +58,12 @@ export const userSlice = createSlice({
     });
   },
 });
-export const { setUser, setShowPass, setLogin, setToken, setPhoneNumber } =
-  userSlice.actions;
+export const {
+  setUser,
+  setShowPass,
+  setLogin,
+  setToken,
+  setPhoneNumber,
+  setCode,
+} = userSlice.actions;
 export default userSlice.reducer;

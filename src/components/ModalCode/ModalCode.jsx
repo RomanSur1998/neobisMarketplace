@@ -4,7 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import styles from "../ModalCode/ModalCode.module.scss";
 import { debounce } from "react-axios/lib/utils";
 import { useDispatch } from "react-redux";
-import { setPhoneNumber } from "../../redux/slices/UserSlice";
+import { setCode, setPhoneNumber } from "../../redux/slices/UserSlice";
 
 const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
   const [isCompleted, setIsCompleted] = useState(false);
@@ -29,19 +29,16 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
 
   function handleChangeValue(event) {
     setValue(event.target.value);
-    // if (value.length === 4) {
-    //   sendCodeToServer(value);
-    // }
   }
 
   function consoler() {
     console.log(value, "value");
+    setIsCodeModalActive();
+    if (value.length === 4) {
+      dispatch(setCode(value));
+    }
   }
 
-  // const sendCodeToServer = debounce((value) => {
-  //   console.log(value, "debounce");
-  //   dispatch(setPhoneNumber(value));
-  // }, 1000);
   return (
     <div
       className={styles.modal}
@@ -53,14 +50,16 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
         <h2>Изменить номер телефона</h2>
         <img src={contact} alt="" />
         <h3>Введите код из СМС</h3>
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="0 0 0 0 "
-          onChange={handleChangeValue}
-          onBlur={consoler}
-        />
+        <form onSubmit={() => consoler()}>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="0 0 0 0 "
+            onChange={handleChangeValue}
+          />
+        </form>
+
         {!isCompleted ? <span>Повторный запрос</span> : null}
 
         <div className={styles.loader}>

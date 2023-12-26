@@ -10,7 +10,8 @@ import { useSelector } from "react-redux";
 const ProfilePage = () => {
   const [isActive, setIsActive] = useState();
   const [isCodeModalActive, setIsCodeModalActive] = useState("");
-  const { phoneNumber } = useSelector((state) => state.user);
+  const { phoneNumber, user } = useSelector((state) => state.user);
+  console.log("phoneNumber", phoneNumber);
 
   function handleActive() {
     setIsActive(!isActive);
@@ -50,7 +51,7 @@ const ProfilePage = () => {
               </h4>
             </div>
             {/*! Вставить данный из запроса  */}
-            <h4>example@email.com</h4>
+            <h4> {user?.email ? user.email : "example@email.com"} </h4>
           </div>
         </section>
         {isActive && (

@@ -7,6 +7,8 @@ import { useFormik } from "formik";
 
 import MaskedInput from "react-text-mask";
 import { phoneNumberMask } from "../../helpers/phoneMask";
+import { useDispatch } from "react-redux";
+import { setPhoneNumber } from "../../redux/slices/UserSlice";
 
 const ModalPhone = ({
   isActive,
@@ -14,11 +16,13 @@ const ModalPhone = ({
   setIsCodeModalActive,
   isCodeModalActive,
 }) => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       phoneNumber: "",
     },
     onSubmit: (values) => {
+      dispatch(setPhoneNumber(values.phoneNumber));
       values.phoneNumber = values.phoneNumber.replace(/\(|\)|\-|\s/g, "");
       console.log(values.phoneNumber, "Phone Number");
       setIsActive(!isActive);

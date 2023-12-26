@@ -10,7 +10,6 @@ const SelectionModal = ({ handleIsSelect, elem }) => {
   const [isActiveEdit, setIsActiveEdit] = useState(false);
   function haddleActive() {
     setIsActive(!isActive);
-    () => handleIsSelect();
   }
   function handleEditActive() {
     setIsActiveEdit(!isActiveEdit);
