@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
-import RegistrationPage from "../pages/RegistrPage/RegistrationPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import PasswordPage from "../pages/PasswordPage/PasswordPage";
 import { Route, Routes } from "react-router";
-import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import FavoritesPage from "../pages/FavoritesPage/FavoritesPage";
-import OwnProducts from "../pages/OwnProducts/OwnProducts";
-import MainPage from "../pages/MainPage/MainPage";
 import { useDispatch, useSelector } from "react-redux";
 import { getToken } from "../helpers/getToken";
 import { setToken } from "../redux/slices/UserSlice";
+import { PRIVATE_ROUT_COLLECTION } from "../helpers/privateRouters";
+import { BASE_ROTES_COLLECTION } from "../helpers/baseRoutes";
 
 const MainRoutes = () => {
   const { token } = useSelector((state) => state.user);
@@ -17,45 +12,6 @@ const MainRoutes = () => {
   useEffect(() => {
     getToken(dispatch, setToken);
   }, []);
-  const PRIVATE_ROUT_COLLECTION = [
-    {
-      link: "/profile",
-      element: <ProfilePage />,
-      id: 4,
-    },
-    {
-      link: "/favorites",
-      element: <FavoritesPage />,
-      id: 5,
-    },
-    {
-      link: "/own",
-      element: <OwnProducts />,
-      id: 6,
-    },
-    {
-      link: "/main",
-      element: <MainPage />,
-      id: 7,
-    },
-  ];
-  const BASE_ROTES_COLLECTION = [
-    {
-      link: "/",
-      element: <LoginPage />,
-      id: 1,
-    },
-    {
-      link: "/registr",
-      element: <RegistrationPage />,
-      id: 2,
-    },
-    {
-      link: "/pass",
-      element: <PasswordPage />,
-      id: 3,
-    },
-  ];
 
   return (
     <Routes>
