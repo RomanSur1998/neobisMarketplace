@@ -16,13 +16,15 @@ $width: 90%;
   /* width: 90%; */
   margin: 6px auto;
   border-radius: 6px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .title {
   width: $width;
   font-size: 14px;
   margin: 0 auto;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.3s;
 }
 .title:hover {

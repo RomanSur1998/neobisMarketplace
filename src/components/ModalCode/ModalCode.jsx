@@ -3,12 +3,15 @@ import contact from "../../assets/icons/contact.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import styles from "../ModalCode/ModalCode.module.scss";
 import { debounce } from "react-axios/lib/utils";
+import { useDispatch } from "react-redux";
+import { setPhoneNumber } from "../../redux/slices/UserSlice";
 
 const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [seconds, setSeconds] = useState(60);
   const [isLoading, setLoading] = useState(true);
   const [value, setValue] = useState("");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,14 +29,19 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
 
   function handleChangeValue(event) {
     setValue(event.target.value);
-    if (value.length == 4) {
-      sendCodeToServer(value);
-    }
+    // if (value.length === 4) {
+    //   sendCodeToServer(value);
+    // }
   }
 
-  const sendCodeToServer = debounce((value) => {
-    console.log(value, "debounce");
-  }, 1000);
+  function consoler() {
+    console.log(value, "value");
+  }
+
+  // const sendCodeToServer = debounce((value) => {
+  //   console.log(value, "debounce");
+  //   dispatch(setPhoneNumber(value));
+  // }, 1000);
   return (
     <div
       className={styles.modal}
@@ -51,6 +59,7 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
           id=""
           placeholder="0 0 0 0 "
           onChange={handleChangeValue}
+          onBlur={consoler}
         />
         {!isCompleted ? <span>Повторный запрос</span> : null}
 

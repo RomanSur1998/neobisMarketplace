@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import {
   setFavoritesProduct,
   setIsFavor,
+  setIsFavorMyProduct,
 } from "../../redux/slices/ProductsSlice";
 
 const Card = ({ pathname, elem }) => {
@@ -19,6 +20,7 @@ const Card = ({ pathname, elem }) => {
     const newObj = { ...elem, isFavor: true };
     dispatch(setFavoritesProduct(newObj));
     dispatch(setIsFavor(elem));
+    dispatch(setIsFavorMyProduct(elem));
   }
   function handleIsActive() {
     setIsActive(!isActive);
@@ -35,6 +37,7 @@ const Card = ({ pathname, elem }) => {
           className={styles.cardImage}
           width={142}
           height={85}
+          onClick={handleIsActive}
         />
         <h3 className={styles.title} onClick={handleIsActive}>
           {elem?.name}

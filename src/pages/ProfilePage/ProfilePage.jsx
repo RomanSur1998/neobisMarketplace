@@ -5,11 +5,12 @@ import profile from "../../assets/icons/user.svg";
 import Modal from "../../components/Modal/ModalPhone";
 import styles from "../ProfilePage/ProfilePage.module.scss";
 import ModalCode from "../../components/ModalCode/ModalCode";
-import EditModal from "../../components/EditModal/EditModal";
+import { useSelector } from "react-redux";
 
 const ProfilePage = () => {
   const [isActive, setIsActive] = useState();
   const [isCodeModalActive, setIsCodeModalActive] = useState("");
+  const { phoneNumber } = useSelector((state) => state.user);
 
   function handleActive() {
     setIsActive(!isActive);
@@ -30,12 +31,7 @@ const ProfilePage = () => {
                 className={styles.field}
                 placeholder="Фамилия "
               />
-              <input
-                type="text"
-                className={styles.field}
-                placeholder="Логин"
-                value={"Roman"}
-              />
+              <input type="text" className={styles.field} placeholder="Логин" />
 
               <input
                 type="text"
@@ -49,7 +45,9 @@ const ProfilePage = () => {
               <button className={styles.button} onClick={handleActive}>
                 Добавить номер
               </button>
-              <h4 className={styles.phoneInput}>0(000) 000 000</h4>
+              <h4 className={styles.phoneInput}>
+                {phoneNumber ? phoneNumber : "0(000) 000 000"}
+              </h4>
             </div>
             {/*! Вставить данный из запроса  */}
             <h4>example@email.com</h4>

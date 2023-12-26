@@ -26,7 +26,7 @@ const DetailsModal = ({ handleIsActive, elem }) => {
         >
           {elem?.files.map((item) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={Math.random()}>
                 <img className={styles.swiperSlide} src={item} alt="" />
               </SwiperSlide>
             );

@@ -41,7 +41,7 @@ const AddProduct = ({ handleActiveAddProduct }) => {
       console.log(Data);
       dispatch(setProduct(Data));
       dispatch(setMyproduct(Data));
-      () => handleActiveAddProduct();
+      handleActiveAddProduct();
       // ! ---------------
     },
     validationSchema: yup.object({

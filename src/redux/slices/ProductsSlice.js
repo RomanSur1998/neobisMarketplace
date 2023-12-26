@@ -374,10 +374,30 @@ export const productSlice = createSlice({
         return product;
       });
     },
+    setIsFavorMyProduct(state, action) {
+      const productIdToUpdate = action.payload.id;
+      state.myProduct = state.myProduct.map((product) => {
+        if (product.id === productIdToUpdate) {
+          return { ...product, isFavor: true };
+        }
+        return product;
+      });
+    },
     setApdateProduct(state, action) {
       const productIdToUpdate = action.payload.id;
 
       state.product = state.product.map((elem) => {
+        if (elem.id === productIdToUpdate) {
+          return action.payload;
+        }
+
+        return elem;
+      });
+    },
+    setApdateMyProduct(state, action) {
+      const productIdToUpdate = action.payload.id;
+
+      state.myProduct = state.myProduct.map((elem) => {
         if (elem.id === productIdToUpdate) {
           return action.payload;
         }
@@ -391,6 +411,12 @@ export const productSlice = createSlice({
         (elem) => elem.id !== productIdToUpdate
       );
     },
+    setMyProductDelete(state, action) {
+      const productIdToUpdate = action.payload.id;
+      state.myProduct = state.myProduct.filter(
+        (elem) => elem.id !== productIdToUpdate
+      );
+    },
   },
 });
 
@@ -400,5 +426,9 @@ export const {
   setFavoritesProduct,
   setIsFavor,
   setApdateProduct,
+  setIsFavorMyProduct,
+  setProductDelete,
+  setMyProductDelete,
+  setApdateMyProduct,
 } = productSlice.actions;
 export default productSlice.reducer;

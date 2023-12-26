@@ -8,7 +8,10 @@ import { Pagination, Navigation } from "swiper/modules";
 import styles from "../EditModal/EditModal.module.scss";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { setApdateProduct } from "../../redux/slices/ProductsSlice";
+import {
+  setApdateMyProduct,
+  setApdateProduct,
+} from "../../redux/slices/ProductsSlice";
 
 const EditModal = ({ handleEditActive, elem }) => {
   const dispatch = useDispatch();
@@ -21,15 +24,17 @@ const EditModal = ({ handleEditActive, elem }) => {
       longDescr: elem.fullDescription,
     },
     onSubmit: (values) => {
-      console.log({
-        ...elem,
-        price: values.price,
-        name: values.title,
-        description: values.shotDescr,
-        fullDescription: values.longDescr,
-      });
       dispatch(
         setApdateProduct({
+          ...elem,
+          price: values.price,
+          name: values.title,
+          description: values.shotDescr,
+          fullDescription: values.longDescr,
+        })
+      );
+      dispatch(
+        setApdateMyProduct({
           ...elem,
           price: values.price,
           name: values.title,

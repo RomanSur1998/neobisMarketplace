@@ -32,7 +32,11 @@ const SelectionModal = ({ handleIsSelect, elem }) => {
         </div>
       </div>
       {isActive ? (
-        <DeleteModal setIsActive={setIsActive} isActive={isActive} />
+        <DeleteModal
+          setIsActive={setIsActive}
+          isActive={isActive}
+          elem={elem}
+        />
       ) : null}
 
       {isActiveEdit ? (
