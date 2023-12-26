@@ -8,7 +8,7 @@ const initialState = {
     name: "",
     surName: "",
     login: "",
-    dateOfbirth:''
+    dateOfbirth: "",
   },
   token: "",
   error: false,
@@ -53,7 +53,7 @@ export const userSlice = createSlice({
       state.user_photo = action.payload;
     },
     setUserOwnData(state, action) {
-      state.userOwnData = { ...state.userOwnData };
+      state.userOwnData = { ...state.userOwnData, name: action.payload };
     },
   },
   extraReducers: (builder) => {
@@ -76,5 +76,6 @@ export const {
   setPhoneNumber,
   setCode,
   setUserPhoto,
+  setUserOwnData,
 } = userSlice.actions;
 export default userSlice.reducer;

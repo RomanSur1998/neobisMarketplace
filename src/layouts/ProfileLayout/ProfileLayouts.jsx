@@ -9,6 +9,7 @@ import { useNavigate } from "react-router";
 import OutModal from "../../components/OutModal/OutModal";
 import styles from "../ProfileLayout/ProfileLayouts.module.scss";
 import { useSelector } from "react-redux";
+import { deleteToken } from "../../helpers/deleteToken";
 
 const ProfileLayouts = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
@@ -85,7 +86,12 @@ const ProfileLayouts = ({ children }) => {
         <OutModal isActive={isActive} handleActive={handleActive}>
           <img src={confirmLogout} alt="" />
           <h3>Вы действительно хотите выйти с приложения?</h3>
-          <button className={styles.buttonOut}>Выйти</button>
+          <button
+            className={styles.buttonOut}
+            onClick={() => deleteToken(navigate)}
+          >
+            Выйти
+          </button>
           <button onClick={handleActive} className={styles.buttonCancel}>
             Отмена
           </button>
