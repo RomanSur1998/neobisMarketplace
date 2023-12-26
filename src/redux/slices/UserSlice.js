@@ -4,7 +4,12 @@ import { checkAvialability, loginUser, registUser } from "./UserActions";
 
 const initialState = {
   user: {},
-  userOwnData: {},
+  userOwnData: {
+    name: "",
+    surName: "",
+    login: "",
+    dateOfbirth:''
+  },
   token: "",
   error: false,
   status: null,
@@ -47,7 +52,9 @@ export const userSlice = createSlice({
     setUserPhoto(state, action) {
       state.user_photo = action.payload;
     },
-    setUserOwnData(state, action) {},
+    setUserOwnData(state, action) {
+      state.userOwnData = { ...state.userOwnData };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(registUser.fulfilled, (state, action) => {

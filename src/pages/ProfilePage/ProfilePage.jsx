@@ -6,9 +6,7 @@ import Modal from "../../components/Modal/ModalPhone";
 import ModalCode from "../../components/ModalCode/ModalCode";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserPhoto } from "../../redux/slices/UserSlice";
-
 import styles from "../ProfilePage/ProfilePage.module.scss";
-import { Cropper } from "react-cropper";
 
 const ProfilePage = () => {
   const [isActive, setIsActive] = useState();
@@ -24,7 +22,7 @@ const ProfilePage = () => {
     dispatch(setUserPhoto(params[0]));
     console.log(URL.createObjectURL(params[0]), "user Photo");
   }
-
+  function handleSetUserData(data) {}
   return (
     <ProfileLayouts>
       <>
@@ -39,11 +37,6 @@ const ProfilePage = () => {
               className={styles.cropper}
             />
           ) : (
-            // <Cropper
-            //   src={URL.createObjectURL(user_photo)}
-            //   style={{ height: 54, width: 54 }}
-            //   guides={false}
-            // />
             <img src={profile} width={54} alt="" />
           )}
 
@@ -60,13 +53,24 @@ const ProfilePage = () => {
 
           <div className={styles.profileData}>
             <form action="submit">
-              <input type="text" className={styles.field} placeholder="Имя " />
+              <input
+                type="text"
+                className={styles.field}
+                placeholder="Имя"
+                onBlur={(e) => handleSetUserData(e.target.value)}
+              />
+
               <input
                 type="text"
                 className={styles.field}
                 placeholder="Фамилия "
               />
-              <input type="text" className={styles.field} placeholder="Логин" />
+              <input
+                type="text"
+                className={styles.field}
+                placeholder="Логин"
+                // value={user?.username ? username : "User"}
+              />
 
               <input
                 type="text"
@@ -84,7 +88,7 @@ const ProfilePage = () => {
                 {phoneNumber ? phoneNumber : "0(000) 000 000"}
               </h4>
             </div>
-            {/*! Вставить данный из запроса  */}
+
             <h4> {user?.email ? user.email : "example@email.com"} </h4>
           </div>
         </section>
