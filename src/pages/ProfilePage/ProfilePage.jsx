@@ -10,9 +10,9 @@ import styles from "../ProfilePage/ProfilePage.module.scss";
 import { useFormik } from "formik";
 
 const ProfilePage = () => {
+  const dispatch = useDispatch();
   const [isActive, setIsActive] = useState();
   const [isCodeModalActive, setIsCodeModalActive] = useState("");
-  const dispatch = useDispatch();
   const { phoneNumber, user, user_photo, userOwnData } = useSelector(
     (state) => state.user
   );
@@ -26,19 +26,15 @@ const ProfilePage = () => {
     console.log(URL.createObjectURL(params[0]), "user Photo");
   }
 
-  function handleSetUserData(data) {
-    dispatch(setUserOwnData(data));
-  }
-
   const formik = useFormik({
     initialValues: {
-      name: "2",
-      surName: "2",
-      login: "2",
-      dateOfbirth: "2",
+      name: "",
+      surName: "",
+      login: "",
+      dateOfbirth: "",
     },
     onSubmit: (values) => {
-      console.log(values, "data for profile");
+      dispatch(setUserOwnData(values));
     },
   });
   return (
@@ -77,8 +73,9 @@ const ProfilePage = () => {
                 type="text"
                 className={styles.field}
                 placeholder="Имя"
-                // value={userOwnData ? userOwnData.name : formik.values.name}
-                value={formik.name}
+                value={
+                  userOwnData?.name ? userOwnData.name : formik.values.name
+                }
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -89,10 +86,11 @@ const ProfilePage = () => {
                 type="text"
                 className={styles.field}
                 placeholder="Фамилия "
-                // value={
-                //   userOwnData ? userOwnData.surName : formik.values.surName
-                // }
-                value={formik.surName}
+                value={
+                  userOwnData?.surName
+                    ? userOwnData.surName
+                    : formik.values.surName
+                }
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -104,10 +102,9 @@ const ProfilePage = () => {
                 placeholder="Логин"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                // value={
-                //   userOwnData.login ? userOwnData.login : formik.values.login
-                // }
-                value={formik.login}
+                value={
+                  userOwnData?.login ? userOwnData.login : formik.values.login
+                }
               />
 
               <input
@@ -118,13 +115,20 @@ const ProfilePage = () => {
                 placeholder="Дата рождения "
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                // value={
-                //   userOwnData
-                //     ? userOwnData.dateOfbirth
-                //     : formik.values.dateOfbirth
-                // }
-                value={formik.dateOfbirth}
+                value={
+                  userOwnData?.dateOfbirth
+                    ? userOwnData.dateOfbirth
+                    : formik.values.dateOfbirth
+                }
               />
+              {formik.touched.name ||
+              formik.touched.surName ||
+              formik.touched.login ||
+              formik.touched.dateOfbirth ? (
+                <button className="purple_text button_next" type="submit">
+                  Отправить
+                </button>
+              ) : null}
             </form>
           </div>
           <div className={styles.phoneBlock}>

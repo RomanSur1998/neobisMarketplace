@@ -53,7 +53,7 @@ export const userSlice = createSlice({
       state.user_photo = action.payload;
     },
     setUserOwnData(state, action) {
-      state.userOwnData = { ...state.userOwnData, name: action.payload };
+      state.userOwnData = action.payload;
     },
   },
   extraReducers: (builder) => {

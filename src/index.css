@@ -95,3 +95,9 @@
 .margin {
   margin: 0;
 }
+.button_next {
+  border: none;
+  background-color: white;
+  padding-top: 10px;
+  cursor: pointer;
+}
