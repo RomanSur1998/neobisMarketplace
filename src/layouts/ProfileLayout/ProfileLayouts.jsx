@@ -8,9 +8,11 @@ import myProducts from "../../assets/icons/my_products.svg";
 import { useNavigate } from "react-router";
 import OutModal from "../../components/OutModal/OutModal";
 import styles from "../ProfileLayout/ProfileLayouts.module.scss";
+import { useSelector } from "react-redux";
 
 const ProfileLayouts = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
+  const { user_photo } = useSelector((state) => state.user);
 
   const handleActive = () => {
     setIsActive(!isActive);
@@ -26,7 +28,18 @@ const ProfileLayouts = ({ children }) => {
             }}
             className={styles.headersTitile}
           >
-            <img src={profileIcon} alt="" />
+            {user_photo ? (
+              <img
+                src={URL.createObjectURL(user_photo)}
+                alt=""
+                width={60}
+                height={60}
+                className={styles.cropper}
+              />
+            ) : (
+              <img src={profileIcon} alt="" />
+            )}
+
             <div>
               <h3>Roman</h3>
               <h4 className={styles.description}>roman@gmail.com</h4>

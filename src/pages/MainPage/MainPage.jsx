@@ -14,6 +14,7 @@ const MainPage = () => {
     setIsActiceAdd(!isActiveAdd);
   }
   const navigate = useNavigate();
+  const { user_photo } = useSelector((state) => state.user);
   const { product } = useSelector((state) => state.product);
 
   return (
@@ -34,11 +35,22 @@ const MainPage = () => {
                 <h3>Roman</h3>
                 <h4>roman@gmail.com</h4>
               </div>
-              <img
-                src={profileIcon}
-                alt=""
-                onClick={() => navigate("/profile")}
-              />
+              {user_photo ? (
+                <img
+                  src={URL.createObjectURL(user_photo)}
+                  width={60}
+                  height={60}
+                  alt="user icon"
+                  onClick={() => navigate("/profile")}
+                  className={styles.cropper}
+                />
+              ) : (
+                <img
+                  src={profileIcon}
+                  alt=""
+                  onClick={() => navigate("/profile")}
+                />
+              )}
             </div>
           </div>
         </nav>

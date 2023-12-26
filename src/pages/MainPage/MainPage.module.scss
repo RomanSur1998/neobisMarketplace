@@ -25,3 +25,7 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+.cropper {
+  border-radius: 100%;
+  object-fit: cover;
+}

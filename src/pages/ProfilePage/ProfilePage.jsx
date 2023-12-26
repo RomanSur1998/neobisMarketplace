@@ -3,18 +3,26 @@ import ProfileLayouts from "../../layouts/ProfileLayout/ProfileLayouts";
 import Navbar from "../../components/Navbar/Navbar";
 import profile from "../../assets/icons/user.svg";
 import Modal from "../../components/Modal/ModalPhone";
-import styles from "../ProfilePage/ProfilePage.module.scss";
 import ModalCode from "../../components/ModalCode/ModalCode";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserPhoto } from "../../redux/slices/UserSlice";
+
+import styles from "../ProfilePage/ProfilePage.module.scss";
+import { Cropper } from "react-cropper";
 
 const ProfilePage = () => {
   const [isActive, setIsActive] = useState();
   const [isCodeModalActive, setIsCodeModalActive] = useState("");
-  const { phoneNumber, user } = useSelector((state) => state.user);
-  console.log("phoneNumber", phoneNumber);
+  const dispatch = useDispatch();
+  const { phoneNumber, user, user_photo } = useSelector((state) => state.user);
 
   function handleActive() {
     setIsActive(!isActive);
+  }
+
+  function handleSetPhoto(params) {
+    dispatch(setUserPhoto(params[0]));
+    console.log(URL.createObjectURL(params[0]), "user Photo");
   }
 
   return (
@@ -22,8 +30,34 @@ const ProfilePage = () => {
       <>
         <Navbar title={"Профиль"} path={"/main"} />
         <section className={styles.container}>
-          <img src={profile} width={54} alt="" />
-          <h3>Выбрать фотографию</h3>
+          {user_photo ? (
+            <img
+              src={URL.createObjectURL(user_photo)}
+              width={54}
+              height={54}
+              alt=""
+              className={styles.cropper}
+            />
+          ) : (
+            // <Cropper
+            //   src={URL.createObjectURL(user_photo)}
+            //   style={{ height: 54, width: 54 }}
+            //   guides={false}
+            // />
+            <img src={profile} width={54} alt="" />
+          )}
+
+          <label htmlFor="file">
+            <input
+              type="file"
+              id="file"
+              className={styles.file}
+              onChange={(e) => handleSetPhoto(e.target.files)}
+            />
+
+            <h3>Выбрать фотографию</h3>
+          </label>
+
           <div className={styles.profileData}>
             <form action="submit">
               <input type="text" className={styles.field} placeholder="Имя " />

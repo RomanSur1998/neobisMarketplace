@@ -44,6 +44,9 @@ export const userSlice = createSlice({
     setCode(state, action) {
       state.code = action.payload;
     },
+    setUserPhoto(state, action) {
+      state.user_photo = action.payload;
+    },
     setUserOwnData(state, action) {},
   },
   extraReducers: (builder) => {
@@ -65,5 +68,6 @@ export const {
   setToken,
   setPhoneNumber,
   setCode,
+  setUserPhoto,
 } = userSlice.actions;
 export default userSlice.reducer;

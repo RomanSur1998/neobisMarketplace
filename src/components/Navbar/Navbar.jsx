@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 
 const Navbar = ({ title, path }) => {
   const navigate = useNavigate();
+
   return (
     <div className={styles.flex}>
       <div className={styles.arrow}>
