@@ -1,6 +1,6 @@
-import LoginPage from "../pages/LoginPage/LoginPage";
-import PasswordPage from "../pages/PasswordPage/PasswordPage";
-import RegistrationPage from "../pages/RegistrPage/RegistrationPage";
+import LoginPage from "../../pages/LoginPage/LoginPage";
+import PasswordPage from "../../pages/PasswordPage/PasswordPage";
+import RegistrationPage from "../../pages/RegistrPage/RegistrationPage";
 
 export const BASE_ROTES_COLLECTION = [
   {
@@ -18,7 +18,6 @@ export const BASE_ROTES_COLLECTION = [
   {
     link: "/pass",
     element: <PasswordPage />,
-
     id: 3,
   },
 ];

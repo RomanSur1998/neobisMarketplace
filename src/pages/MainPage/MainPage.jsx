@@ -7,12 +7,28 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import AddProduct from "../../components/AddProduct/AddProduct";
 import { useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const MainPage = () => {
+  const toastAddProduct = () => {
+    toast.success("Товар добавлен", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
   const [isActiveAdd, setIsActiceAdd] = useState(false);
   function handleActiveAddProduct() {
     setIsActiceAdd(!isActiveAdd);
   }
+
   const navigate = useNavigate();
   const { user_photo } = useSelector((state) => state.user);
   const { product } = useSelector((state) => state.product);
@@ -63,8 +79,12 @@ const MainPage = () => {
         </section>
       </section>
       {isActiveAdd ? (
-        <AddProduct handleActiveAddProduct={handleActiveAddProduct} />
+        <AddProduct
+          handleActiveAddProduct={handleActiveAddProduct}
+          toastAddProduct={toastAddProduct}
+        />
       ) : null}
+      <ToastContainer />
     </>
   );
 };

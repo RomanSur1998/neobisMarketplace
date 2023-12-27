@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { setMyproduct, setProduct } from "../../redux/slices/ProductsSlice";
 
-const AddProduct = ({ handleActiveAddProduct }) => {
+const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -38,9 +38,10 @@ const AddProduct = ({ handleActiveAddProduct }) => {
         description: value.shotDescr,
         fullDescription: value.longDescr,
       };
-      console.log(Data);
+
       dispatch(setProduct(Data));
       dispatch(setMyproduct(Data));
+      toastAddProduct();
       handleActiveAddProduct();
       // ! ---------------
     },

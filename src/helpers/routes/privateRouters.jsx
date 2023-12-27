@@ -1,13 +1,12 @@
-import FavoritesPage from "../pages/FavoritesPage/FavoritesPage";
-import MainPage from "../pages/MainPage/MainPage";
-import OwnProducts from "../pages/OwnProducts/OwnProducts";
-import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
+import MainPage from "../../pages/MainPage/MainPage";
+import OwnProducts from "../../pages/OwnProducts/OwnProducts";
+import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 
 export const PRIVATE_ROUT_COLLECTION = [
   {
     link: "/profile",
     element: <ProfilePage />,
-
     id: 4,
   },
   {
