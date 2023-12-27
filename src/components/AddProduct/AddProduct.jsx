@@ -6,6 +6,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { setMyproduct, setProduct } from "../../redux/slices/ProductsSlice";
+import { getReduxData } from "../../function/getReduxData";
+import { getFormData } from "../../function/getFormData";
 
 const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
   const dispatch = useDispatch();
@@ -18,32 +20,13 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
       longDescr: "",
     },
     onSubmit: (value) => {
-      // ! ---------------
-      const newData = new FormData();
-      newData.append("files", value.files);
-      newData.append("price", value.price);
-      newData.append("name", value.title);
-      newData.append("description", value.shotDescr);
-      newData.append("description_full", value.longDescr);
-      console.log("form data ", newData);
       const fileArray = Object.values(formik.values.files);
-      const Data = {
-        ...value,
-        files: fileArray.map((elem) => {
-          return URL.createObjectURL(elem);
-        }),
-        id: Math.random() * 100,
-        reiting: 100,
-        name: value.title,
-        description: value.shotDescr,
-        fullDescription: value.longDescr,
-      };
+      getFormData(value);
 
-      dispatch(setProduct(Data));
-      dispatch(setMyproduct(Data));
+      dispatch(setProduct(getReduxData(value, fileArray)));
+      dispatch(setMyproduct(getReduxData(value, fileArray)));
       toastAddProduct();
       handleActiveAddProduct();
-      // ! ---------------
     },
     validationSchema: yup.object({
       price: yup.string().required(),
