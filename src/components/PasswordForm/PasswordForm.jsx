@@ -7,7 +7,7 @@ import styles from "../PasswordForm/PasswordForm.module.scss";
 import { useDispatch } from "react-redux";
 import { getUsername } from "../../helpers/formatUsername/getUsername";
 import { useNavigate } from "react-router";
-import { registUser } from "../../redux/slices/UserActions";
+import { registUser } from "../../redux/actions/UserActions";
 
 const PasswordForm = () => {
   const navigate = useNavigate;

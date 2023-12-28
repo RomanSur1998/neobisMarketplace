@@ -6,7 +6,7 @@ import { validationSchema } from "../../helpers/registrShema";
 import FormButton from "../FormButton/FormButton";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { checkAvialability } from "../../redux/slices/UserActions";
+import { checkAvialability } from "../../redux/actions/UserActions";
 
 const RegistrationForm = ({ checkUser }) => {
   const navigate = useNavigate();

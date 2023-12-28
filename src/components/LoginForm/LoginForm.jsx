@@ -6,7 +6,7 @@ import FormButton from "../FormButton/FormButton";
 import styles from "../LoginForm/LoginForm.module.scss";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { loginUser } from "../../redux/slices/UserActions";
+import { loginUser } from "../../redux/actions/UserActions";
 
 const LoginForm = ({ uncorrectUser }) => {
   const navigate = useNavigate();

@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 
 import MaskedInput from "react-text-mask";
 import { phoneNumberMask } from "../../helpers/phoneMask";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPhoneNumber } from "../../redux/slices/UserSlice";
 
 const ModalPhone = ({
@@ -16,6 +16,7 @@ const ModalPhone = ({
   setIsCodeModalActive,
   isCodeModalActive,
 }) => {
+  const { error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -54,8 +55,10 @@ const ModalPhone = ({
             onBlur={formik.handleBlur}
           />
 
-          {/* если стейт будет то отодбдбразить данную ошибку  */}
-          {/* <h4 className="red">Данный номер уже зарегестрирован</h4> */}
+          {error ? (
+            <h4 className="red">Данный номер уже зарегестрирован</h4>
+          ) : null}
+
           <ModalButton text={"Далее"} formik={formik} type="submit" />
         </form>
       </div>

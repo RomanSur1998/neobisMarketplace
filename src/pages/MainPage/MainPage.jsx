@@ -30,7 +30,7 @@ const MainPage = () => {
   }
 
   const navigate = useNavigate();
-  const { user_photo } = useSelector((state) => state.user);
+  const { user_photo, user } = useSelector((state) => state.user);
   const { product } = useSelector((state) => state.product);
 
   return (
@@ -49,7 +49,7 @@ const MainPage = () => {
             <div className={styles.headersRight}>
               <div className={styles.block}>
                 <h3>Roman</h3>
-                <h4>roman@gmail.com</h4>
+                <h4>{user?.email ? user?.email : "example@gmail.com"}</h4>
               </div>
               {user_photo ? (
                 <img

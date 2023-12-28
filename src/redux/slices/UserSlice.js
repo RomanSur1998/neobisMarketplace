@@ -1,6 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../../api/api";
-import { checkAvialability, loginUser, registUser } from "./UserActions";
+import {
+  checkAvialability,
+  loginUser,
+  registUser,
+} from "../actions/UserActions";
 
 const initialState = {
   user: {},
@@ -17,6 +21,7 @@ const initialState = {
   phoneNumber: "0 000 000-000",
   user_photo: null,
   code: "",
+  code_error: false,
 };
 
 export const userSlice = createSlice({

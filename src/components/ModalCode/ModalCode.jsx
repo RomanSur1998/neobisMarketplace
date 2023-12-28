@@ -3,8 +3,9 @@ import contact from "../../assets/icons/contact.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import styles from "../ModalCode/ModalCode.module.scss";
 import { debounce } from "react-axios/lib/utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCode, setPhoneNumber } from "../../redux/slices/UserSlice";
+import { Formik } from "formik";
 
 const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
   const [isCompleted, setIsCompleted] = useState(false);
@@ -12,6 +13,7 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
   const [isLoading, setLoading] = useState(true);
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
+  const { code_error } = useSelector((state) => state.user);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -72,13 +74,20 @@ const ModalCode = ({ isCodeModalActive, setIsCodeModalActive }) => {
               data-testid="loader"
             />
           ) : null}{" "}
-          {!isCompleted ? <p className="seconds">00.{seconds}</p> : null}
+          {!isCompleted ? <p className="seconds">00:{seconds}</p> : null}
         </div>
 
         {isCompleted ? (
-          <span className={styles.purple}>Отправить код еще раз</span>
+          <span
+            className={styles.purple}
+            onClick={() => {
+              consoler();
+            }}
+          >
+            Отправить код еще раз
+          </span>
         ) : null}
-        {/* <span className="red">Неверный код</span> */}
+        {code_error ? <span className="red">Неверный код</span> : null}
       </div>
     </div>
   );

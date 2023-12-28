@@ -13,7 +13,7 @@ import { deleteToken } from "../../helpers/deleteToken";
 
 const ProfileLayouts = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
-  const { user_photo } = useSelector((state) => state.user);
+  const { user_photo, user } = useSelector((state) => state.user);
 
   const handleActive = () => {
     setIsActive(!isActive);
@@ -43,7 +43,9 @@ const ProfileLayouts = ({ children }) => {
 
             <div>
               <h3>Roman</h3>
-              <h4 className={styles.description}>roman@gmail.com</h4>
+              <h4 className={styles.description}>
+                {user?.email ? user?.email : "example@gmail.com"}
+              </h4>
             </div>
           </div>
           <div className={styles.favorBlock}>
