@@ -66,6 +66,9 @@ export const userSlice = createSlice({
     builder.addCase(checkAvialability.fulfilled, (state, action) => {
       state.error = true;
     });
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state.token = action.payload.data.jwtToken;
+    });
   },
 });
 export const {

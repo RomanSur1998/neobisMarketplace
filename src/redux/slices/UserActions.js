@@ -32,8 +32,7 @@ export const loginUser = createAsyncThunk(
       let tokens = JSON.parse(localStorage.getItem("tokens"));
       tokens = response.data.jwtToken;
       localStorage.setItem("tokens", JSON.stringify(tokens));
-
-      console.log("response", response);
+      return response;
     } catch (error) {
       console.error(error, "Error login");
     }
