@@ -1,4 +1,4 @@
-import { configuretedAxios } from "../config/AxiosConfig";
+import { confAxios, configuretedAxios } from "../config/AxiosConfig";
 
 export const api = {
   registration: async function (data, navigate) {
@@ -35,6 +35,15 @@ export const api = {
     } catch (error) {
       checkUser();
       console.error("error check", error);
+    }
+  },
+  getAllProduct: async function () {
+    try {
+      const response = await confAxios.get("" );
+      console.log("получил данные о продуктах", response);
+      return response;
+    } catch (error) {
+      console.error(error, "error get all Product");
     }
   },
 };

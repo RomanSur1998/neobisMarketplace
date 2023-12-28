@@ -1,4 +1,4 @@
-export function setUsername(value) {
+export function setUsername(value   ) {
   if (!localStorage.getItem("username")) {
     localStorage.setItem("username", JSON.stringify({}));
   }
