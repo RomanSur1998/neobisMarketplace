@@ -20,7 +20,7 @@ export const PRIVATE_ROUT_COLLECTION = [
     id: 6,
   },
   {
-    link: "/",
+    link: "/main",
     element: <MainPage />,
     id: 7,
   },
