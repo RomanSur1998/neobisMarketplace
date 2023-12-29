@@ -20,11 +20,11 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
       longDescr: "",
     },
     onSubmit: (value) => {
+      const id = Math.random() * 100;
       const fileArray = Object.values(formik.values.files);
       getFormData(value);
-
-      dispatch(setProduct(getReduxData(value, fileArray)));
-      dispatch(setMyproduct(getReduxData(value, fileArray)));
+      dispatch(setProduct(getReduxData({ ...value, id: id }, fileArray)));
+      dispatch(setMyproduct(getReduxData({ ...value, id: id }, fileArray)));
       toastAddProduct();
       handleActiveAddProduct();
     },

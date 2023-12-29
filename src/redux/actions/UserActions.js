@@ -31,6 +31,7 @@ export const loginUser = createAsyncThunk(
       const response = await api.autorisation(data, uncorrectUser, navigate);
       let tokens = JSON.parse(localStorage.getItem("tokens"));
       tokens = response.data.jwtToken;
+      console.log(response);
       localStorage.setItem("tokens", JSON.stringify(tokens));
       return response;
     } catch (error) {

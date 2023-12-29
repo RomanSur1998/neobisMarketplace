@@ -4,7 +4,7 @@ export function getReduxData(data, fileArray) {
     files: fileArray.map((elem) => {
       return URL.createObjectURL(elem);
     }),
-    id: Math.random() * 100,
+    isFavor: false,
     reiting: 100,
     name: data.title,
     description: data.shotDescr,

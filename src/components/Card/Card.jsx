@@ -19,7 +19,7 @@ const Card = ({ pathname, elem }) => {
   function handleDispatch() {
     const newObj = { ...elem, isFavor: true };
     dispatch(setFavoritesProduct(newObj));
-    dispatch(setIsFavor(elem));
+    dispatch(setIsFavor(newObj));
     dispatch(setIsFavorMyProduct(elem));
   }
   function handleIsActive() {
