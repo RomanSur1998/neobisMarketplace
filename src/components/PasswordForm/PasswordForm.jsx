@@ -18,6 +18,7 @@ const PasswordForm = () => {
       confirmPassword: "",
     },
     onSubmit: (values) => {
+      console.log(getUsername(values));
       dispatch(registUser({ data: getUsername(values), navigate }));
     },
     validationSchema,

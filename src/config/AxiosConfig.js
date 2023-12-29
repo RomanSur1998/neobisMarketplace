@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API } from "../helpers/constatns";
+import { loginUser } from "../redux/actions/UserActions";
 
 export const configuretedAxios = axios.create({
   baseURL: API,
@@ -29,16 +30,16 @@ configuretedAxios.interceptors.response.use(
     if (error?.response?.status === 401 && !config?.sent) {
       config.sent = true;
 
-      const result = await memoizedRefreshToken();
-
-      if (result?.accessToken) {
-        config.headers = {
-          ...config.headers,
-          authorization: `Bearer ${result?.accessToken}`,
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const result = await configuretedAxios.post("/api/refresh");
+      if (result?.data.jwtToken) {
+        configuretedAxios.headers = {
+          ...configuretedAxios.headers,
+          Authorization: `Bearer ${tokens}`,
         };
       }
 
-      return axios(config);
+      return axios(configuretedAxios);
     }
     return Promise.reject(error);
   }

@@ -18,6 +18,7 @@ const RegistrationForm = ({ checkUser }) => {
       email: "",
     },
     onSubmit: (value) => {
+      localStorage.setItem("username", JSON.stringify(value));
       dispatch(
         checkAvialability({ data: value, navigate, checkUser: checkUser })
       );
