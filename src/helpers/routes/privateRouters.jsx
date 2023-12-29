@@ -17,13 +17,11 @@ export const PRIVATE_ROUT_COLLECTION = [
   {
     link: "/own",
     element: <OwnProducts />,
-
     id: 6,
   },
   {
-    link: "/main",
+    link: "/",
     element: <MainPage />,
-
     id: 7,
   },
 ];

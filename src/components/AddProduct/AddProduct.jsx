@@ -20,7 +20,7 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
       longDescr: "",
     },
     onSubmit: (value) => {
-      const id = Math.random() * 100;
+      const id = Math.floor(Math.random() * 100);
       const fileArray = Object.values(formik.values.files);
       getFormData(value);
       dispatch(setProduct(getReduxData({ ...value, id: id }, fileArray)));
@@ -103,8 +103,17 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          <input
+          {/* <input
             className={styles.input}
+            type="text"
+            placeholder="Полное описание"
+            name="longDescr"
+            id="longDescr"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          /> */}
+          <textarea
+            className={styles.textArea}
             type="text"
             placeholder="Полное описание"
             name="longDescr"

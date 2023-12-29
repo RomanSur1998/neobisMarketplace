@@ -4,7 +4,7 @@ import RegistrationPage from "../../pages/RegistrPage/RegistrationPage";
 
 export const BASE_ROTES_COLLECTION = [
   {
-    link: "/",
+    link: "/login",
     element: <LoginPage />,
 
     id: 1,
