@@ -3,19 +3,21 @@ import { confAxios, configuretedAxios } from "../config/AxiosConfig";
 export const api = {
   registration: async function (data, navigate) {
     try {
-      const respose = await configuretedAxios.post("/api/registration", data);
-      navigate("/main");
+      const respose = await configuretedAxios.post(
+        "/registration/register",
+        data
+      );
+      console.log(respose, "Данные с api");
+      navigate("/");
       return respose;
     } catch (error) {
       console.error("Registration error", error);
+      return error;
     }
   },
   autorisation: async function (data, uncorrectUser, navigate) {
     try {
-      const response = await configuretedAxios.post(
-        "/api/authentication",
-        data
-      );
+      const response = await configuretedAxios.post("/registration/log", data);
       navigate("/main");
       return response;
     } catch (error) {
@@ -27,10 +29,13 @@ export const api = {
   check: async function (data, navigate, checkUser) {
     try {
       const response = await configuretedAxios.post(
-        "/api/checkAvailability",
+        "/registration/credentialsCheck",
         data
       );
-      navigate("/pass");
+      console.log(response, "api");
+      if (response.data.statusCodeValue === 200) {
+        navigate("/pass");
+      }
       return response;
     } catch (error) {
       checkUser();
@@ -39,7 +44,7 @@ export const api = {
   },
   getAllProduct: async function () {
     try {
-      const response = await confAxios.get("" );
+      const response = await confAxios.get("");
       console.log("получил данные о продуктах", response);
       return response;
     } catch (error) {

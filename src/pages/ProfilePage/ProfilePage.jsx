@@ -73,11 +73,7 @@ const ProfilePage = () => {
                 type="text"
                 className={styles.field}
                 placeholder="Имя"
-                value={
-                  userOwnData?.name && !formik.values.name
-                    ? userOwnData.name
-                    : formik.values.name
-                }
+                value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -88,11 +84,7 @@ const ProfilePage = () => {
                 type="text"
                 className={styles.field}
                 placeholder="Фамилия "
-                value={
-                  userOwnData?.surName && !formik.values.surName
-                    ? userOwnData.surName
-                    : formik.values.surName
-                }
+                value={formik.values.surName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -104,11 +96,7 @@ const ProfilePage = () => {
                 placeholder="Логин"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={
-                  userOwnData?.login && !formik.values.login
-                    ? userOwnData.login
-                    : formik.values.login
-                }
+                value={formik.values.login}
               />
 
               <input
@@ -119,11 +107,7 @@ const ProfilePage = () => {
                 placeholder="Дата рождения "
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={
-                  userOwnData?.dateOfbirth && !formik.values.dateOfbirth
-                    ? userOwnData.dateOfbirth
-                    : formik.values.dateOfbirth
-                }
+                value={formik.values.dateOfbirth}
               />
               {formik.touched.name ||
               formik.touched.surName ||

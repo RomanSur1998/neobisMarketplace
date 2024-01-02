@@ -6,7 +6,7 @@ export const registUser = createAsyncThunk(
     try {
       console.log("Запрос проходит");
       const respose = await api.registration(data, navigate);
-      console.log(respose, respose);
+      console.log(respose, "response");
     } catch (error) {
       console.error(error);
     }
@@ -17,6 +17,7 @@ export const checkAvialability = createAsyncThunk(
   "user/checkAvialability",
   async ({ data, navigate, checkUser }) => {
     const respose = await api.check(data, navigate, checkUser);
+
     console.log(respose);
     try {
     } catch (error) {
@@ -30,7 +31,8 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await api.autorisation(data, uncorrectUser, navigate);
       let tokens = JSON.parse(localStorage.getItem("tokens"));
-      tokens = response.data.jwtToken;
+      console.log("token new", tokens);
+      tokens = response.data.token;
       console.log(response);
       localStorage.setItem("tokens", JSON.stringify(tokens));
       return response;

@@ -72,7 +72,7 @@ export const userSlice = createSlice({
       state.error = true;
     });
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.token = action.payload.data.jwtToken;
+      state.token = action.payload.data.token;
     });
   },
 });
