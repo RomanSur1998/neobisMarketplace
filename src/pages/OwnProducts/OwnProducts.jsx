@@ -11,7 +11,7 @@ const OwnProducts = () => {
 
   return (
     <ProfileLayouts>
-      <Navbar title={"Мои товары"} path={"/favorites"} />
+      <Navbar title={"Мои товары"} path={"/main"} />
       <div className={styles.favoritesContainer}>
         {myProduct?.map((elem) => {
           return <Card pathname={"own"} elem={elem} key={elem.id} />;

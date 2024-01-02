@@ -67,4 +67,4 @@ const Card = ({ pathname, elem }) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);

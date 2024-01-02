@@ -10,7 +10,7 @@ const FavoritesPage = () => {
   // console.log("favorites product ", favoritesProduct);
   return (
     <ProfileLayouts>
-      <Navbar title={"Понравившиеся"} path={"/profile"} />
+      <Navbar title={"Понравившиеся"} path={"/main"} />
       <div className={styles.favoritesContainer}>
         {favoritesProduct?.map((elem) => {
           return <Card elem={elem} key={elem.id} />;

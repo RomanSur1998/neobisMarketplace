@@ -28,10 +28,10 @@ const ProfilePage = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      surName: "",
-      login: "",
-      dateOfbirth: "",
+      name: userOwnData.name,
+      surName: userOwnData.surName,
+      login: userOwnData.login,
+      dateOfbirth: userOwnData.dateOfbirth,
     },
     onSubmit: (values) => {
       dispatch(setUserOwnData(values));
@@ -74,7 +74,9 @@ const ProfilePage = () => {
                 className={styles.field}
                 placeholder="Имя"
                 value={
-                  userOwnData?.name ? userOwnData.name : formik.values.name
+                  userOwnData?.name && !formik.values.name
+                    ? userOwnData.name
+                    : formik.values.name
                 }
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -87,7 +89,7 @@ const ProfilePage = () => {
                 className={styles.field}
                 placeholder="Фамилия "
                 value={
-                  userOwnData?.surName
+                  userOwnData?.surName && !formik.values.surName
                     ? userOwnData.surName
                     : formik.values.surName
                 }
@@ -103,7 +105,9 @@ const ProfilePage = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={
-                  userOwnData?.login ? userOwnData.login : formik.values.login
+                  userOwnData?.login && !formik.values.login
+                    ? userOwnData.login
+                    : formik.values.login
                 }
               />
 
@@ -116,7 +120,7 @@ const ProfilePage = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={
-                  userOwnData?.dateOfbirth
+                  userOwnData?.dateOfbirth && !formik.values.dateOfbirth
                     ? userOwnData.dateOfbirth
                     : formik.values.dateOfbirth
                 }

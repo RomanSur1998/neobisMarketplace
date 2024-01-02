@@ -23,6 +23,7 @@ const DetailsModal = ({ handleIsActive, elem }) => {
           navigation={true}
           modules={[Pagination, Navigation]}
           className={styles.swiper}
+          effect={"coverflow"}
         >
           {elem?.files.map((item) => {
             return (
@@ -41,7 +42,7 @@ const DetailsModal = ({ handleIsActive, elem }) => {
           <h3>{elem?.name}</h3>
           <p>{elem?.description}</p>
           <h4>Детальное описание</h4>
-          <p>{elem?.fullDescription}</p>
+          <p className={styles.paragraph}>{elem?.fullDescription}</p>
         </div>
       </div>
     </div>
