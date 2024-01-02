@@ -9,21 +9,9 @@ import AddProduct from "../../components/AddProduct/AddProduct";
 import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
+import { toaster } from "../../helpers/toastifyHelpers";
 
 const MainPage = () => {
-  const toastAddProduct = () => {
-    toast.success("Товар добавлен", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
-
   const [isActiveAdd, setIsActiceAdd] = useState(false);
   function handleActiveAddProduct() {
     setIsActiceAdd(!isActiveAdd);
@@ -81,7 +69,7 @@ const MainPage = () => {
       {isActiveAdd ? (
         <AddProduct
           handleActiveAddProduct={handleActiveAddProduct}
-          toastAddProduct={toastAddProduct}
+          toastAddProduct={toaster.toastAddProduct}
         />
       ) : null}
       <ToastContainer />

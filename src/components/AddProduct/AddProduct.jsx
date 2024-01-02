@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { setMyproduct, setProduct } from "../../redux/slices/ProductsSlice";
 import { getReduxData } from "../../function/getReduxData";
 import { getFormData } from "../../function/getFormData";
+import { toaster } from "../../helpers/toastifyHelpers";
 
 const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
       dispatch(setProduct(getReduxData({ ...value, id: id }, fileArray)));
       dispatch(setMyproduct(getReduxData({ ...value, id: id }, fileArray)));
       toastAddProduct();
+
       handleActiveAddProduct();
     },
     validationSchema: yup.object({
@@ -103,15 +105,7 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {/* <input
-            className={styles.input}
-            type="text"
-            placeholder="Полное описание"
-            name="longDescr"
-            id="longDescr"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          /> */}
+
           <textarea
             className={styles.textArea}
             type="text"

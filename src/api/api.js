@@ -51,4 +51,29 @@ export const api = {
       console.error(error, "error get all Product");
     }
   },
+  getOwnProduct: async function () {
+    try {
+      const response = await confAxios.get("");
+      console.log(response, "Продукты user");
+      return response;
+    } catch (error) {
+      console.log(error, "Own product error");
+    }
+  },
+  getFavoritesProducts: async function () {
+    try {
+      const response = await confAxios.get("");
+      return response;
+    } catch (error) {
+      console.log(error, "ошибка при получении favorites");
+    }
+  },
+  setMyProduct: async function (formData) {
+    try {
+      const response = await confAxios.post("", formData);
+      return response;
+    } catch (error) {
+      console.log(error, "ошибка при отправке продукта");
+    }
+  },
 };

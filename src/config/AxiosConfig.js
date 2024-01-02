@@ -1,6 +1,5 @@
 import axios from "axios";
 import { API } from "../helpers/constatns";
-import { loginUser } from "../redux/actions/UserActions";
 
 export const configuretedAxios = axios.create({
   baseURL: API,

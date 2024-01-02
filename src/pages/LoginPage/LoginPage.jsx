@@ -5,20 +5,9 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { toaster } from "../../helpers/toastifyHelpers";
 
 const LoginPage = () => {
-  const uncorrectUser = () =>
-    toast.error("Неверный логин или пароль", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-
   return (
     <>
       <section className={styles.container}>
@@ -26,7 +15,7 @@ const LoginPage = () => {
           <img src={card} alt="" />
         </div>
         <div className={styles.form}>
-          <LoginForm uncorrectUser={uncorrectUser} />
+          <LoginForm uncorrectUser={toaster.uncorrectUser} />
           <Link to={"/registr"} className={styles.purpule}>
             Зарегистрироваться
           </Link>

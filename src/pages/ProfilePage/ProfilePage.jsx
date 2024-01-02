@@ -6,8 +6,11 @@ import Modal from "../../components/Modal/ModalPhone";
 import ModalCode from "../../components/ModalCode/ModalCode";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserOwnData, setUserPhoto } from "../../redux/slices/UserSlice";
-import styles from "../ProfilePage/ProfilePage.module.scss";
 import { useFormik } from "formik";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import styles from "../ProfilePage/ProfilePage.module.scss";
+import { toaster } from "../../helpers/toastifyHelpers";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -35,6 +38,7 @@ const ProfilePage = () => {
     },
     onSubmit: (values) => {
       dispatch(setUserOwnData(values));
+      toaster.setUserDataToast();
     },
   });
   return (
@@ -146,6 +150,7 @@ const ProfilePage = () => {
             setIsCodeModalActive={setIsCodeModalActive}
           />
         ) : null}
+        <ToastContainer />
       </>
     </ProfileLayouts>
   );
