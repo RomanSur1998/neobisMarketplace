@@ -3,12 +3,11 @@ import fileDownloader from "../../assets/icons/fileDownloader.svg";
 import remove from "../../assets/icons/remove.svg";
 import styles from "../AddProduct/AddProduct.module.scss";
 import { useFormik } from "formik";
-import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { setMyproduct, setProduct } from "../../redux/slices/ProductsSlice";
 import { getReduxData } from "../../function/getReduxData";
 import { getFormData } from "../../function/getFormData";
-import { toaster } from "../../helpers/toastifyHelpers";
+import { globalShema } from "../../helpers/globalShema";
 
 const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
   const dispatch = useDispatch();
@@ -30,12 +29,8 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
 
       handleActiveAddProduct();
     },
-    validationSchema: yup.object({
-      price: yup.string().required(),
-      title: yup.string().required(),
-      shotDescr: yup.string().required(),
-      longDescr: yup.string().required(),
-    }),
+
+    validationSchema: globalShema.addPoductShema,
   });
   const fileArray = Object.values(formik.values.files);
 
