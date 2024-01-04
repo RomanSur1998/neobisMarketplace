@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 import { registUser } from "../../redux/actions/UserActions";
 
 const PasswordForm = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

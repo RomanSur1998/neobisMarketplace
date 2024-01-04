@@ -67,6 +67,7 @@ const AddProduct = ({ handleActiveAddProduct, toastAddProduct }) => {
                         height={96}
                         key={index}
                         className={styles.imgPreviw}
+                        accept=".jpg, .jpeg, .png .svg "
                       />
                     );
                   })

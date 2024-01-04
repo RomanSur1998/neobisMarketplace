@@ -13,7 +13,6 @@ import { toaster } from "../../helpers/toastifyHelpers";
 const RegistrationPage = () => {
   const navigate = useNavigate();
   const { error } = useSelector((state) => state.user);
-  console.log(error, "user");
 
   return (
     <>

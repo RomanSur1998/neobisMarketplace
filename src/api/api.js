@@ -3,13 +3,15 @@ import { confAxios, configuretedAxios } from "../config/AxiosConfig";
 export const api = {
   registration: async function (data, navigate) {
     try {
-      const respose = await configuretedAxios.post(
+      const response = await configuretedAxios.post(
         "/registration/register",
         data
       );
-      console.log(respose, "Данные с api");
-      navigate("/");
-      return respose;
+      console.log(response, "Данные с api");
+      if (response.status === 200) {
+        navigate("/");
+      }
+      return response;
     } catch (error) {
       console.error("Registration error", error);
       return error;
