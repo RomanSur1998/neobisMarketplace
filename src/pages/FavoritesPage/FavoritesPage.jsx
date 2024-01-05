@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const FavoritesPage = () => {
   const { favoritesProduct } = useSelector((state) => state.product);
-  // console.log("favorites product ", favoritesProduct);
   return (
     <ProfileLayouts>
       <Navbar title={"Понравившиеся"} path={"/main"} />

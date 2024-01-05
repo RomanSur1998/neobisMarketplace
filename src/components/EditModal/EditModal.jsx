@@ -97,14 +97,16 @@ const EditModal = ({ handleEditActive, elem, handleIsSelect }) => {
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
           />
-          <input
+
+          <textarea
+            className={styles.textArea}
             type="text"
+            placeholder="Полное описание"
             name="longDescr"
             id="longDescr"
-            className={styles.input}
-            value={formik.values.longDescr}
-            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.longDescr}
           />
           <button className={styles.AddbuttonPurple} type="submit">
             Сохранить

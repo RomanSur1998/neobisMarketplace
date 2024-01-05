@@ -12,7 +12,7 @@
 }
 .modalContent {
   width: 565px;
-  height: 720px;
+  height: 730px;
   background-color: white;
   border-radius: 30px;
 }
@@ -56,4 +56,14 @@
   width: 532px;
   height: 320px;
   object-fit: cover;
+}
+.textArea {
+  width: 500px;
+  height: 60px;
+  border: none;
+  outline: none;
+  background-color: #f7f7f8;
+  border-radius: 12px;
+  padding: 10px;
+  padding-top: 20px;
 }
