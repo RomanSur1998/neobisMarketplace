@@ -44,7 +44,7 @@ const ProfilePage = () => {
   return (
     <ProfileLayouts>
       <>
-        <Navbar title={"Профиль"} path={"/main"} />
+        <Navbar title={"Профиль"} path={"/"} />
         <section className={styles.container}>
           {user_photo ? (
             <img

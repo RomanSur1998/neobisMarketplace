@@ -27,7 +27,7 @@ const RegistrationPage = () => {
                 src={arrow}
                 alt=""
                 onClick={() => {
-                  navigate("/");
+                  navigate("/login");
                 }}
               />
               <span>Назад</span>

@@ -9,7 +9,7 @@ const FavoritesPage = () => {
   const { favoritesProduct } = useSelector((state) => state.product);
   return (
     <ProfileLayouts>
-      <Navbar title={"Понравившиеся"} path={"/main"} />
+      <Navbar title={"Понравившиеся"} path={"/"} />
       <div className={styles.favoritesContainer}>
         {favoritesProduct?.map((elem) => {
           return <Card elem={elem} key={elem.id} />;
